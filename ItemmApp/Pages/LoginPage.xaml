@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+             x:Class="ItemmApp.LoginPage"
+             BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewModel:LoginViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="80"
+            Padding="20,20,20,0">
+
+            <StackLayout HorizontalOptions="Center" Spacing="30">
+                <Image
+                    Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HeightRequest="150"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    HorizontalOptions="Center"
+                    FontSize="30" TextColor="White">
+                    Bem vindo de Volta!
+                </Label>
+
+                <StackLayout Spacing="10">
+
+                    <StackLayout>
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Email"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15"
+                                   BackgroundColor="White"
+                                   TextColor="#545F71" 
+                                   FontFamily="Inter"
+                                   ClearButtonVisibility="WhileEditing"
+                            ></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Senha"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="True" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+            <StackLayout
+                Spacing="70">
+                <Button 
+                    Text="Entrar"
+                    TextColor="White"
+                    BorderColor="White"
+                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                    BorderWidth="1"
+                    FontSize="17" 
+                    FontFamily="Inter"
+                    FontAttributes="Bold"
+                    Command="{Binding Path=MoveToMainCommand}"
+                    />
+
+                <Image
+                    Source="itemm_text.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    HeightRequest="30" 
+                    HorizontalOptions="Center" />
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

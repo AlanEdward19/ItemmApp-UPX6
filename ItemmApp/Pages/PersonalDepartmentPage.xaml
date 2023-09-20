@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+             x:Class="ItemmApp.PersonalDepartmentPage"
+             BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewModel:PersonalDepartmentViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="30"
+            Padding="20,0,20,0">
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
+                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="60" HeightRequest="60" HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
+                    </Frame.GestureRecognizers>
+
+                    <Image Source="arrow_icon.png" Aspect="AspectFit" WidthRequest="20" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Frame>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image
+                        Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        HeightRequest="50"
+                        HorizontalOptions="Center" />
+
+                    <Image
+                        Source="itemm_text.png"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        HeightRequest="20"
+                        HorizontalOptions="Center" />
+                </HorizontalStackLayout>
+
+            </HorizontalStackLayout>
+            
+            <StackLayout Spacing="20">
+                <Picker Title="Turma" BackgroundColor="White"></Picker>
+
+                <StackLayout Spacing="10">
+
+                    <StackLayout>
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Aluno"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Button 
+                            Text="Adicionar"
+                            TextColor="White"
+                            BorderColor="White"
+                            BorderWidth="1"
+                            Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                            FontSize="12" 
+                            FontFamily="Inter"
+                            FontAttributes="Bold"
+                            WidthRequest="100"
+                            HeightRequest="30"
+                            Command="{Binding Path=MoveToCadasterScreenCommand}"
+                        />
+
+                        <Button 
+                            Text="Atualizar"
+                            TextColor="White"
+                            BorderColor="White"
+                            BorderWidth="1"
+                            Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                            FontSize="12" 
+                            FontFamily="Inter"
+                            FontAttributes="Bold"
+                            WidthRequest="100"
+                            HeightRequest="30"
+                        />
+
+                        <Button 
+                            Text="Remover"
+                            TextColor="White"
+                            BorderColor="White"
+                            BorderWidth="1"
+                            Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                            FontSize="12" 
+                            FontFamily="Inter"
+                            FontAttributes="Bold"
+                            WidthRequest="100"
+                            HeightRequest="30"
+                        />
+                    </HorizontalStackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout>
+                <Frame BackgroundColor="White" HeightRequest="400">
+                    <ListView></ListView>
+                </Frame>
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

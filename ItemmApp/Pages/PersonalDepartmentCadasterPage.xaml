@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+             x:Class="ItemmApp.PersonalDepartmentCadasterPage"
+             BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewModel:PersonalDepartmentCadasterViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="30"
+            Padding="20,0,20,0">
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
+                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="60" HeightRequest="60" HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
+                    </Frame.GestureRecognizers>
+
+                    <Image Source="arrow_icon.png" Aspect="AspectFit" WidthRequest="20" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Frame>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image
+                        Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        HeightRequest="50"
+                        HorizontalOptions="Center" />
+
+                    <Image
+                        Source="itemm_text.png"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        HeightRequest="20"
+                        HorizontalOptions="Center" />
+                </HorizontalStackLayout>
+
+            </HorizontalStackLayout>
+
+            <StackLayout>
+                <Label Padding="5,0,0,0"
+                       HorizontalTextAlignment="Start" 
+                       FontSize="15"
+                       TextColor="#545F71"
+                       VerticalOptions="Start" 
+                       Text="Nome"
+                       FontFamily="Inter"
+                       TextDecorations="Underline"></Label>
+
+                <Frame Padding="2" BorderColor="DarkGrey">
+                    <Entry FontSize="15" 
+                           TextColor="#545F71" 
+                           BackgroundColor="White"
+                           IsPassword="True" 
+                           FontFamily="Inter" 
+                           ClearButtonVisibility="WhileEditing"></Entry>
+                </Frame>
+            </StackLayout>
+
+            <StackLayout>
+
+                <StackLayout>
+
+                    <Grid ColumnSpacing="20">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Row="0" Grid.Column="0">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Status"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="0" Grid.Column="1">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Empresa"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="0" Spacing="0">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Polo"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="1">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Turma"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                    </Grid>
+
+                </StackLayout>
+
+                <StackLayout Spacing="20">
+                    <StackLayout>
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Admissão"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <DatePicker TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
+
+                    </StackLayout>
+
+                    <StackLayout>
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="#545F71"
+                               VerticalOptions="Start" 
+                               Text="Data de Nascimento"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <DatePicker TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout Padding="40">
+                    <Button 
+                        Text="Salvar"
+                        TextColor="White"
+                        BorderColor="White"
+                        BorderWidth="1"
+                        Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                        FontSize="12" 
+                        FontFamily="Inter"
+                        FontAttributes="Bold"
+                    />
+                </StackLayout>
+
+            </StackLayout>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
