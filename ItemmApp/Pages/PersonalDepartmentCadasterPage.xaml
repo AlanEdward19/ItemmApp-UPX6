@@ -39,11 +39,11 @@
 
             </HorizontalStackLayout>
 
-            <StackLayout>
+            <StackLayout Spacing="3">
                 <Label Padding="5,0,0,0"
                        HorizontalTextAlignment="Start" 
                        FontSize="15"
-                       TextColor="#545F71"
+                       TextColor="White"
                        VerticalOptions="Start" 
                        Text="Nome"
                        FontFamily="Inter"
@@ -73,11 +73,11 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <StackLayout Grid.Row="0" Grid.Column="0">
+                        <StackLayout Grid.Row="0" Grid.Column="0" Spacing="3">
                             <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
-                               TextColor="#545F71"
+                               TextColor="White"
                                VerticalOptions="Start" 
                                Text="Status"
                                FontFamily="Inter"
@@ -93,11 +93,11 @@
                             </Frame>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="0" Grid.Column="1">
+                        <StackLayout Grid.Row="0" Grid.Column="1" Spacing="3">
                             <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
-                               TextColor="#545F71"
+                               TextColor="White"
                                VerticalOptions="Start" 
                                Text="Empresa"
                                FontFamily="Inter"
@@ -113,11 +113,11 @@
                             </Frame>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="1" Grid.Column="0" Spacing="0">
+                        <StackLayout Grid.Row="1" Grid.Column="0" Spacing="3">
                             <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
-                               TextColor="#545F71"
+                               TextColor="White"
                                VerticalOptions="Start" 
                                Text="Polo"
                                FontFamily="Inter"
@@ -133,11 +133,11 @@
                             </Frame>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="1" Grid.Column="1">
+                        <StackLayout Grid.Row="1" Grid.Column="1" Spacing="3">
                             <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
-                               TextColor="#545F71"
+                               TextColor="White"
                                VerticalOptions="Start" 
                                Text="Turma"
                                FontFamily="Inter"
@@ -158,31 +158,32 @@
                 </StackLayout>
 
                 <StackLayout Spacing="20">
-                    <StackLayout>
+
+                    <StackLayout Spacing="3">
                         <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
-                               TextColor="#545F71"
+                               TextColor="White"
                                VerticalOptions="Start" 
                                Text="Admissão"
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <DatePicker TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
+                        <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
 
                     </StackLayout>
 
-                    <StackLayout>
+                    <StackLayout Spacing="3">
                         <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
-                               TextColor="#545F71"
+                               TextColor="White"
                                VerticalOptions="Start" 
                                Text="Data de Nascimento"
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <DatePicker TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
+                        <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
                     </StackLayout>
 
                 </StackLayout>

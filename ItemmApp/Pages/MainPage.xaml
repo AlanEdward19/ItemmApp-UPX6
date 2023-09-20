@@ -10,7 +10,7 @@
         <Grid>
             <!-- Elemento de fundo com cor -->
             <BoxView Color="{AppThemeBinding Dark=#022664, Light=#95CA60}" Opacity="1" />
-            
+
             <!-- Elemento de imagem (sem fundo) -->
             <Image Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}" Aspect="Center" />
 
