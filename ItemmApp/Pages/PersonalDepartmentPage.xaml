@@ -104,6 +104,7 @@
                             FontAttributes="Bold"
                             WidthRequest="100"
                             HeightRequest="40"
+                            Command="{Binding Path=MoveToUpdateCadasterScreenCommand}"
                         />
 
                         <Button 
@@ -117,6 +118,7 @@
                             FontAttributes="Bold"
                             WidthRequest="100"
                             HeightRequest="40"
+                            Command="{Binding Path=MoveToAttendanceScreenCommand}"
                         />
                     </HorizontalStackLayout>
 

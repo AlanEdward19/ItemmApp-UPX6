@@ -56,6 +56,9 @@
 
 	<ItemGroup>
     <Compile Update="Pages\PersonalDepartmentAttendancePage.xaml.cs">
+      <DependentUpon>PersonalDepartmentAttendancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\PersonalDepartmentAttendancePage.xaml.cs">
 	    <DependentUpon>PersonalDepartmentAttendancePage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\PersonalDepartmentAssessmentPage.xaml.cs">
@@ -85,6 +88,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+
+	  <MauiXaml Update="Pages\PersonalDepartmentAttendancePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 
 	  <MauiXaml Update="Pages\PersonalDepartmentAttendancePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>

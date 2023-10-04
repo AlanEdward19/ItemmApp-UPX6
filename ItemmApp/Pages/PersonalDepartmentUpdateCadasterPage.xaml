@@ -404,7 +404,7 @@
 
                 <StackLayout Padding="40">
                     <Button 
-                        Text="Salvar"
+                        Text="Atualizar"
                         TextColor="White"
                         BorderColor="White"
                         BorderWidth="1"
