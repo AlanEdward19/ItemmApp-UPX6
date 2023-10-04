@@ -31,7 +31,7 @@
                             <ColumnDefinition Width="190" />
                         </Grid.ColumnDefinitions>
 
-                        <Frame Grid.Row="0" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" CornerRadius="10" Margin="10">
+                        <Frame Grid.Row="0" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Path=MoveToPersonalDepartmentCommand}" />
                             </Frame.GestureRecognizers>
@@ -40,15 +40,15 @@
 
                         </Frame>
 
-                        <Frame Grid.Row="0" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" CornerRadius="10" Margin="10">
+                        <Frame Grid.Row="0" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
                             <Label Text="Setor Social" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Frame>
 
-                        <Frame Grid.Row="1" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" CornerRadius="10" Margin="10">
+                        <Frame Grid.Row="1" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
                             <Label Text="Setor Pedagógico" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Frame>
 
-                        <Frame Grid.Row="1" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" CornerRadius="10" Margin="10">
+                        <Frame Grid.Row="1" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
                             <Label Text="Configurações" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Frame>
                     </Grid>

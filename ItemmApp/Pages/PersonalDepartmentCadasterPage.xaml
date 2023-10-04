@@ -67,6 +67,12 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100" />
                             <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -79,7 +85,7 @@
                                FontSize="15"
                                TextColor="White"
                                VerticalOptions="Start" 
-                               Text="Status"
+                               Text="CPF"
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
@@ -153,37 +159,245 @@
                             </Frame>
                         </StackLayout>
 
+                        <StackLayout Grid.Row="2" Grid.Column="0" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="RG"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="1" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Telefone"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" Grid.Column="0" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Cidade"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" Grid.Column="1" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Função"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="4" Grid.Column="0" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Periodo Contrato"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="4" Grid.Column="1" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Admissão"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" HorizontalOptions="Fill"></DatePicker>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="5" Grid.Column="1" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Termino de Contrato"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" HorizontalOptions="Fill"></DatePicker>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="5" Grid.Column="0" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Primeiro dia da capacitação Introdutoria"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="6" Grid.Column="0" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Dia Final da capacitação Introdutoria"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="7" Grid.Column="0" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Primeiro dia da capacitação semanal"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="7" Grid.Column="1" Spacing="3">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Dia da semana da capacitação"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <Frame Padding="2" BorderColor="DarkGrey">
+                                <Entry FontSize="15" 
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="6" Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                            <Label Padding="5,0,0,0"
+                                   HorizontalTextAlignment="Start" 
+                                   FontSize="15"
+                                   TextColor="White"
+                                   VerticalOptions="Start" 
+                                   Text="Data de Nascimento"
+                                   FontFamily="Inter"
+                                   TextDecorations="Underline"></Label>
+
+                            <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" HorizontalOptions="Fill"></DatePicker>
+                        </StackLayout>
+
                     </Grid>
 
-                </StackLayout>
-
-                <StackLayout Spacing="20">
-
                     <StackLayout Spacing="3">
                         <Label Padding="5,0,0,0"
                                HorizontalTextAlignment="Start" 
                                FontSize="15"
                                TextColor="White"
                                VerticalOptions="Start" 
-                               Text="Admissão"
+                               Text="Horario capacitação inicial e final"
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
-
-                    </StackLayout>
-
-                    <StackLayout Spacing="3">
-                        <Label Padding="5,0,0,0"
-                               HorizontalTextAlignment="Start" 
-                               FontSize="15"
-                               TextColor="White"
-                               VerticalOptions="Start" 
-                               Text="Data de Nascimento"
-                               FontFamily="Inter"
-                               TextDecorations="Underline"></Label>
-
-                        <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" WidthRequest="400" HorizontalOptions="Start"></DatePicker>
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
                     </StackLayout>
 
                 </StackLayout>

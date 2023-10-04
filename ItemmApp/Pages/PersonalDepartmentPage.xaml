@@ -40,7 +40,21 @@
             </HorizontalStackLayout>
             
             <StackLayout Spacing="20">
-                <Picker Title="Turma" TitleColor="White" BackgroundColor="White"></Picker>
+                
+                <StackLayout Spacing="3">
+                    <Label Padding="5,0,0,0"
+                           HorizontalTextAlignment="Start" 
+                           FontSize="15"
+                           TextColor="White"
+                           VerticalOptions="Start" 
+                           Text="Turma"
+                           FontFamily="Inter"
+                           TextDecorations="Underline"></Label>
+
+                    <Frame Padding="2" BorderColor="DarkGrey">
+                        <Picker BackgroundColor="White"></Picker>
+                    </Frame>
+                </StackLayout>
 
                 <StackLayout Spacing="10">
 
@@ -75,7 +89,7 @@
                             FontFamily="Inter"
                             FontAttributes="Bold"
                             WidthRequest="100"
-                            HeightRequest="30"
+                            HeightRequest="40"
                             Command="{Binding Path=MoveToCadasterScreenCommand}"
                         />
 
@@ -89,7 +103,7 @@
                             FontFamily="Inter"
                             FontAttributes="Bold"
                             WidthRequest="100"
-                            HeightRequest="30"
+                            HeightRequest="40"
                         />
 
                         <Button 
@@ -102,7 +116,7 @@
                             FontFamily="Inter"
                             FontAttributes="Bold"
                             WidthRequest="100"
-                            HeightRequest="30"
+                            HeightRequest="40"
                         />
                     </HorizontalStackLayout>
 
@@ -114,6 +128,20 @@
                 <Frame BackgroundColor="White" HeightRequest="400">
                     <ListView></ListView>
                 </Frame>
+            </StackLayout>
+
+            <StackLayout>
+
+                <Button 
+                    Text="Gerar certificado"
+                    TextColor="White"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                    FontSize="12" 
+                    FontFamily="Inter"
+                    FontAttributes="Bold"
+                />
             </StackLayout>
 
         </VerticalStackLayout>
