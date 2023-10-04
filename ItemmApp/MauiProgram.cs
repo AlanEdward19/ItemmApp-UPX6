@@ -30,6 +30,21 @@ public static class MauiProgram
         builder.Services.AddTransient<PersonalDepartmentCadasterPage>();
         builder.Services.AddTransient<PersonalDepartmentCadasterViewModel>();
 
+<<<<<<< HEAD
+        builder.Services.AddTransient<PersonalDepartmentUpdateCadasterPage>();
+        builder.Services.AddTransient<PersonalDepartmentUpdateCadasterViewModel>();
+
+        builder.Services.AddTransient<PersonalDepartmentAttendancePage>();
+        builder.Services.AddTransient<PersonalDepartmentAttendanceViewModel>();
+
+        builder.Services.AddTransient<PersonalDepartmentAssessmentPage>();
+        builder.Services.AddTransient<PersonalDepartmentAssessmentViewModel>();
+
+        builder.Services.AddTransient<PersonalDepartmentAddAssessmentPage>();
+        builder.Services.AddTransient<PersonalDepartmentAddAssessmentViewModel>();
+
+=======
+>>>>>>> parent of 0fc81be (feat: attendanceScreen)
         #endregion
 
 #if DEBUG

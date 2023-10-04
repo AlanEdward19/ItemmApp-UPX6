@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+             x:Class="ItemmApp.PersonalDepartmentAddAssessmentPage"
+             BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+             Shell.NavBarIsVisible="False"
+             x:DataType="viewModel:PersonalDepartmentAddAssessmentViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="30"
+            Padding="20,0,20,0">
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
+                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="60" HeightRequest="60" HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
+                    </Frame.GestureRecognizers>
+
+                    <Image Source="arrow_icon.png" Aspect="AspectFit" WidthRequest="20" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Frame>
+
+                <HorizontalStackLayout Spacing="10">
+                    <Image
+                        Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        HeightRequest="50"
+                        HorizontalOptions="Center" />
+
+                    <Image
+                        Source="itemm_text.png"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        HeightRequest="20"
+                        HorizontalOptions="Center" />
+                </HorizontalStackLayout>
+
+            </HorizontalStackLayout>
+            
+            <StackLayout Spacing="20">
+                <StackLayout Spacing="40">
+
+                    <StackLayout Spacing="3">
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Habilidade Tecnica"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Spacing="3">
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Participação"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Spacing="3">
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Relacionamento Interpessoal"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Spacing="3">
+                        <Label Padding="5,0,0,0"
+                               HorizontalTextAlignment="Start" 
+                               FontSize="15"
+                               TextColor="White"
+                               VerticalOptions="Start" 
+                               Text="Cumprimento de Metas"
+                               FontFamily="Inter"
+                               TextDecorations="Underline"></Label>
+
+                        <Frame Padding="2" BorderColor="DarkGrey">
+                            <Entry FontSize="15" 
+                                   TextColor="#545F71" 
+                                   BackgroundColor="White"
+                                   IsPassword="False" 
+                                   FontFamily="Inter" 
+                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        </Frame>
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout Padding="0,20,0,0">
+
+                <Button 
+                    Text="Salvar"
+                    TextColor="White"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                    FontSize="12" 
+                    FontFamily="Inter"
+                    FontAttributes="Bold"
+                    Command="{Binding Path=MoveBackCommand}"
+                />
+            </StackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

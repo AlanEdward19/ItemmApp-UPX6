@@ -55,6 +55,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+<<<<<<< HEAD
+	  <Compile Update="Pages\PersonalDepartmentAttendancePage.xaml.cs">
+	    <DependentUpon>PersonalDepartmentAttendancePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PersonalDepartmentAssessmentPage.xaml.cs">
+	    <DependentUpon>PersonalDepartmentAssessmentPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PersonalDepartmentAddAssessmentPage.xaml.cs">
+	    <DependentUpon>PersonalDepartmentAddAssessmentPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\PersonalDepartmentUpdateCadasterPage.xaml.cs">
+	    <DependentUpon>PersonalDepartmentUpdateCadasterPage.xaml</DependentUpon>
+	  </Compile>
+=======
+>>>>>>> parent of 0fc81be (feat: attendanceScreen)
 	  <Compile Update="Pages\PersonalDepartmentCadasterPage.xaml.cs">
 	    <DependentUpon>PersonalDepartmentCadasterPage.xaml</DependentUpon>
 	  </Compile>
@@ -70,6 +85,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+<<<<<<< HEAD
+	  <MauiXaml Update="Pages\PersonalDepartmentAttendancePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PersonalDepartmentAssessmentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PersonalDepartmentAddAssessmentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PersonalDepartmentUpdateCadasterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+=======
+>>>>>>> parent of 0fc81be (feat: attendanceScreen)
 	  <MauiXaml Update="Pages\PersonalDepartmentCadasterPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

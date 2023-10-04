@@ -141,6 +141,7 @@
                     FontSize="12" 
                     FontFamily="Inter"
                     FontAttributes="Bold"
+                    Command="{Binding Path=MoveToAssessmentScreenCommand}"
                 />
             </StackLayout>
 

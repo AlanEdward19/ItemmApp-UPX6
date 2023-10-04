@@ -11,4 +11,16 @@ public partial class PersonalDepartmentViewModel : ObservableObject
 
     [ICommand]
     async Task MoveToCadasterScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentCadasterPage));
+<<<<<<< HEAD
+
+    [ICommand]
+    async Task MoveToUpdateCadasterScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentUpdateCadasterPage));
+
+    [ICommand]
+    async Task MoveToAttendanceScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAttendancePage));
+
+    [ICommand]
+    async Task MoveToAssessmentScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAssessmentPage));
+=======
+>>>>>>> parent of 0fc81be (feat: attendanceScreen)
 }
