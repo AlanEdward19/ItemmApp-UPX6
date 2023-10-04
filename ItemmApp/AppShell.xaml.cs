@@ -11,12 +11,10 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
         Routing.RegisterRoute(nameof(PersonalDepartmentPage), typeof(PersonalDepartmentPage));
         Routing.RegisterRoute(nameof(PersonalDepartmentCadasterPage), typeof(PersonalDepartmentCadasterPage));
-<<<<<<< HEAD
+
         Routing.RegisterRoute(nameof(PersonalDepartmentUpdateCadasterPage), typeof(PersonalDepartmentUpdateCadasterPage));
         Routing.RegisterRoute(nameof(PersonalDepartmentAttendancePage), typeof(PersonalDepartmentAttendancePage));
         Routing.RegisterRoute(nameof(PersonalDepartmentAssessmentPage), typeof(PersonalDepartmentAssessmentPage));
         Routing.RegisterRoute(nameof(PersonalDepartmentAddAssessmentPage), typeof(PersonalDepartmentAddAssessmentPage));
-=======
->>>>>>> parent of 0fc81be (feat: attendanceScreen)
     }
 }

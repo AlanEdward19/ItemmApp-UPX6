@@ -30,7 +30,6 @@ public static class MauiProgram
         builder.Services.AddTransient<PersonalDepartmentCadasterPage>();
         builder.Services.AddTransient<PersonalDepartmentCadasterViewModel>();
 
-<<<<<<< HEAD
         builder.Services.AddTransient<PersonalDepartmentUpdateCadasterPage>();
         builder.Services.AddTransient<PersonalDepartmentUpdateCadasterViewModel>();
 
@@ -43,8 +42,6 @@ public static class MauiProgram
         builder.Services.AddTransient<PersonalDepartmentAddAssessmentPage>();
         builder.Services.AddTransient<PersonalDepartmentAddAssessmentViewModel>();
 
-=======
->>>>>>> parent of 0fc81be (feat: attendanceScreen)
         #endregion
 
 #if DEBUG

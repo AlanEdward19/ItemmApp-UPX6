@@ -11,7 +11,6 @@ public partial class PersonalDepartmentViewModel : ObservableObject
 
     [ICommand]
     async Task MoveToCadasterScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentCadasterPage));
-<<<<<<< HEAD
 
     [ICommand]
     async Task MoveToUpdateCadasterScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentUpdateCadasterPage));
@@ -21,6 +20,4 @@ public partial class PersonalDepartmentViewModel : ObservableObject
 
     [ICommand]
     async Task MoveToAssessmentScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAssessmentPage));
-=======
->>>>>>> parent of 0fc81be (feat: attendanceScreen)
 }
