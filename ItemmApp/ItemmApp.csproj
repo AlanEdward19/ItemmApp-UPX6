@@ -55,6 +55,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Reference Include="Microsoft.WinUI">
+	    <HintPath>..\..\..\..\.nuget\packages\microsoft.windowsappsdk\1.2.221209.1\lib\net6.0-windows10.0.18362.0\Microsoft.WinUI.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
     <Compile Update="Pages\PersonalDepartmentAttendancePage.xaml.cs">
       <DependentUpon>PersonalDepartmentAttendancePage.xaml</DependentUpon>
     </Compile>
