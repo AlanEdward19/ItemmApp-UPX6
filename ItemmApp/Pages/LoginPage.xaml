@@ -2,10 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+             xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="ItemmApp.LoginPage"
              BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
              Shell.NavBarIsVisible="False"
              x:DataType="viewModel:LoginViewModel">
+
+    <ContentPage.Behaviors>
+        <behaviors:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark=#022664, Light=#95CA60}" />
+    </ContentPage.Behaviors>
 
     <ScrollView>
         <VerticalStackLayout

@@ -36,20 +36,29 @@
                                 <TapGestureRecognizer Command="{Binding Path=MoveToPersonalDepartmentCommand}" />
                             </Frame.GestureRecognizers>
 
-                            <Label Text="Departamento Pessoal" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label FontSize="19" Text="Departamento" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label FontSize="19" Text="Pessoal" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </VerticalStackLayout>
 
                         </Frame>
 
                         <Frame Grid.Row="0" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
-                            <Label Text="Setor Social" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label FontSize="20" Text="Setor" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label FontSize="20" Text="Social" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </VerticalStackLayout>
                         </Frame>
 
                         <Frame Grid.Row="1" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
-                            <Label Text="Setor Pedagógico" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label FontSize="20" Text="Setor" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label FontSize="20" Text="Pedagógico" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </VerticalStackLayout>
                         </Frame>
 
                         <Frame Grid.Row="1" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
-                            <Label Text="Configurações" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                            <Label FontSize="19" Text="Configurações" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
                         </Frame>
                     </Grid>
                 </StackLayout>
