@@ -15,7 +15,7 @@
             Padding="20,0,20,0">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
-                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="60" HeightRequest="60" HasShadow="True">
+                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="45" HeightRequest="45" HasShadow="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
                     </Frame.GestureRecognizers>
@@ -51,9 +51,15 @@
                            FontFamily="Inter"
                            TextDecorations="Underline"></Label>
 
-                    <Frame Padding="2" BorderColor="DarkGrey">
+                    <Border
+                        StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
+
                         <Picker BackgroundColor="White"></Picker>
-                    </Frame>
+                    </Border>
+
                 </StackLayout>
 
                 <StackLayout Spacing="10">
@@ -68,14 +74,20 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <Frame Padding="2" BorderColor="DarkGrey">
+                        <Border
+                            StrokeThickness="2">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
                             <Entry FontSize="15" 
                                    TextColor="#545F71" 
                                    BackgroundColor="White"
                                    IsPassword="False" 
                                    FontFamily="Inter" 
                                    ClearButtonVisibility="WhileEditing"></Entry>
-                        </Frame>
+                        </Border>
+
                     </StackLayout>
 
                     <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">

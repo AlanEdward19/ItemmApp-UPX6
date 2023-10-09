@@ -39,14 +39,21 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <Frame Padding="2" BorderColor="DarkGrey">
+                        <Border HorizontalOptions="Center"
+                                WidthRequest="330"
+                            StrokeThickness="2">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
                             <Entry FontSize="15"
                                    BackgroundColor="White"
                                    TextColor="#545F71" 
                                    FontFamily="Inter"
                                    ClearButtonVisibility="WhileEditing"
                             ></Entry>
-                        </Frame>
+                        </Border>
+
                     </StackLayout>
 
                     <StackLayout Spacing="3">
@@ -59,14 +66,20 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <Frame Padding="2" BorderColor="DarkGrey">
-                            <Entry FontSize="15" 
-                                   TextColor="#545F71" 
+                        <Border HorizontalOptions="Center"
+                                WidthRequest="330"
+                                StrokeThickness="2">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
+                            <Entry FontSize="15"
                                    BackgroundColor="White"
-                                   IsPassword="True" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
-                        </Frame>
+                                   TextColor="#545F71" 
+                                   FontFamily="Inter"
+                                   ClearButtonVisibility="WhileEditing"
+                            ></Entry>
+                        </Border>
                     </StackLayout>
 
                 </StackLayout>
