@@ -6,10 +6,8 @@ public partial class LoginPage : ContentPage
 {
 
     public LoginPage(LoginViewModel vm)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = vm;
     }
-
 }
-

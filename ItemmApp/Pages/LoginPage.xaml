@@ -45,9 +45,10 @@
                                    TextColor="#545F71" 
                                    FontFamily="Inter"
                                    ClearButtonVisibility="WhileEditing"
-                            ></Entry>
+                                   Text="{Binding Email, Mode=TwoWay}" />
                         </Frame>
                     </StackLayout>
+
 
                     <StackLayout Spacing="3">
                         <Label Padding="5,0,0,0"
@@ -59,15 +60,29 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                        <Frame Padding="2" BorderColor="DarkGrey">
-                            <Entry FontSize="15" 
-                                   TextColor="#545F71" 
-                                   BackgroundColor="White"
-                                   IsPassword="True" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
+                        <Frame Padding="2" BorderColor="DarkGrey" x:Name="PasswordFrame">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Entry FontSize="15" 
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="{Binding IsVisible, Mode=TwoWay}"
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"
+                                       Text="{Binding Senha, Mode=TwoWay}" Grid.Row="0"/>
+                                <Button Text="{Binding HideShowPassword}" TextColor="Black" Command="{ Binding Path=ShowHidePasswordCommand}" VerticalOptions="End" HorizontalOptions="End"  />
+                            </Grid>
+                            
                         </Frame>
+                        
                     </StackLayout>
+
+
+
 
                 </StackLayout>
 
