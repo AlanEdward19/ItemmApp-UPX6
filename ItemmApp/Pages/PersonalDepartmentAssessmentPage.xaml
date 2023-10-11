@@ -15,7 +15,7 @@
             Padding="20,0,20,0">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
-                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="60" HeightRequest="60" HasShadow="True">
+                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="45" HeightRequest="45" HasShadow="True">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
                     </Frame.GestureRecognizers>
@@ -49,7 +49,15 @@
                        FontFamily="Inter"
                        TextDecorations="Underline"></Label>
 
-                <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" HorizontalOptions="Fill"></DatePicker>
+                <Border
+                    StrokeThickness="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+
+                    <DatePicker Format="dd/MM/yyyy" TextColor="#545F71" BackgroundColor="White" HorizontalOptions="Fill"></DatePicker>
+                </Border>
+
             </StackLayout>
 
             <StackLayout Spacing="3">
@@ -62,14 +70,20 @@
                        FontFamily="Inter"
                        TextDecorations="Underline"></Label>
 
-                <Frame Padding="2" BorderColor="DarkGrey">
+                <Border
+                    StrokeThickness="2">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+
                     <Entry FontSize="15" 
                            TextColor="#545F71" 
                            BackgroundColor="White"
                            IsPassword="True" 
                            FontFamily="Inter" 
                            ClearButtonVisibility="WhileEditing"></Entry>
-                </Frame>
+                </Border>
+
             </StackLayout>
 
             <StackLayout>
@@ -96,14 +110,20 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                            <Frame Padding="2" BorderColor="DarkGrey">
+                            <Border
+                                StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
                                 <Entry FontSize="15" 
-                                   TextColor="#545F71" 
-                                   BackgroundColor="White"
-                                   IsPassword="False" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
-                            </Frame>
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Border>
+
                         </StackLayout>
 
                         <StackLayout Grid.Row="0" Grid.Column="1" Spacing="3">
@@ -116,14 +136,19 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                            <Frame Padding="2" BorderColor="DarkGrey">
+                            <Border
+                                StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
                                 <Entry FontSize="15" 
-                                   TextColor="#545F71" 
-                                   BackgroundColor="White"
-                                   IsPassword="False" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
-                            </Frame>
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Border>
                         </StackLayout>
 
                         <StackLayout Grid.Row="1" Grid.Column="0" Spacing="3">
@@ -136,14 +161,20 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                            <Frame Padding="2" BorderColor="DarkGrey">
+                            <Border
+                                StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
                                 <Entry FontSize="15" 
-                                   TextColor="#545F71" 
-                                   BackgroundColor="White"
-                                   IsPassword="False" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
-                            </Frame>
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Border>
+
                         </StackLayout>
 
                         <StackLayout Grid.Row="1" Grid.Column="1" Spacing="3">
@@ -156,14 +187,19 @@
                                FontFamily="Inter"
                                TextDecorations="Underline"></Label>
 
-                            <Frame Padding="2" BorderColor="DarkGrey">
+                            <Border
+                                StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
                                 <Entry FontSize="15" 
-                                   TextColor="#545F71" 
-                                   BackgroundColor="White"
-                                   IsPassword="False" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
-                            </Frame>
+                                       TextColor="#545F71" 
+                                       BackgroundColor="White"
+                                       IsPassword="False" 
+                                       FontFamily="Inter" 
+                                       ClearButtonVisibility="WhileEditing"></Entry>
+                            </Border>
                         </StackLayout>
 
                     </Grid>
