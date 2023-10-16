@@ -1,4 +1,6 @@
 ﻿using CommunityToolkit.Maui;
+using ItemmApp.Interfaces;
+using ItemmApp.Repository;
 using ItemmApp.ViewModel;
 using Microsoft.Extensions.Logging;
 
@@ -43,6 +45,14 @@ public static class MauiProgram
 
         builder.Services.AddTransient<PersonalDepartmentAddAssessmentPage>();
         builder.Services.AddTransient<PersonalDepartmentAddAssessmentViewModel>();
+
+        #endregion
+
+        #region Services
+
+        builder.Services.AddScoped<ILoginRepository, LoginRepository>();
+        builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+        builder.Services.AddScoped<IClassRepository, ClassRepository>();
 
         #endregion
 
