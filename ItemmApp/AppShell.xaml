@@ -9,6 +9,9 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="Login" />
+        Route="Login"
+        Shell.BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                                Light={StaticResource 'Primary White'}}"
+        Shell.NavBarIsVisible="False" />
 
 </Shell>
