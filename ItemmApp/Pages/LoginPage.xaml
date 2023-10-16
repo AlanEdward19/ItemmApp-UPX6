@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
-             xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="ItemmApp.LoginPage"
-             BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
-             Shell.NavBarIsVisible="False"
-             x:DataType="viewModel:LoginViewModel">
+<ContentPage
+    x:Class="ItemmApp.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+    x:DataType="viewModel:LoginViewModel"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                      Light={StaticResource 'Primary White'}}">
 
     <ContentPage.Behaviors>
         <behaviors:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark=#022664, Light=#95CA60}" />
@@ -14,76 +15,88 @@
 
     <ScrollView>
         <VerticalStackLayout
-            VerticalOptions="Center"
+            Padding="20,20,20,0"
             HorizontalOptions="Center"
             Spacing="80"
-            Padding="20,20,20,0">
+            VerticalOptions="Center">
 
             <StackLayout HorizontalOptions="Center" Spacing="30">
                 <Image
-                    Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
-                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
                     HeightRequest="150"
-                    HorizontalOptions="Center" />
+                    HorizontalOptions="Center"
+                    SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                    Source="{AppThemeBinding Dark=itemm_logo_dark.png,
+                                             Light=itemm_logo_light.png}" />
 
                 <Label
+                    FontSize="30"
                     HorizontalOptions="Center"
-                    FontSize="30" TextColor="White">
+                    TextColor="White">
                     Bem vindo de Volta!
                 </Label>
 
                 <StackLayout Spacing="10">
 
                     <StackLayout Spacing="3">
-                        <Label Padding="5,0,0,0"
-                               HorizontalTextAlignment="Start" 
-                               FontSize="15"
-                               TextColor="White"
-                               VerticalOptions="Start" 
-                               Text="Email"
-                               FontFamily="Inter"
-                               TextDecorations="Underline"></Label>
+                        <Label
+                            Padding="5,0,0,0"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            HorizontalTextAlignment="Start"
+                            Text="Email"
+                            TextColor="White"
+                            TextDecorations="Underline"
+                            VerticalOptions="Start" />
 
-                        <Border HorizontalOptions="Center"
-                                WidthRequest="330"
-                            StrokeThickness="2">
+                        <Border
+                            HorizontalOptions="Center"
+                            StrokeThickness="2"
+                            WidthRequest="330">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry FontSize="15"
-                                   BackgroundColor="White"
-                                   TextColor="#545F71" 
-                                   FontFamily="Inter"
-                                   ClearButtonVisibility="WhileEditing"
-                            ></Entry>
+                            <Entry
+                                BackgroundColor="White"
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                Keyboard="Email"
+                                Placeholder="E-mail"
+                                Text="{Binding Email}"
+                                TextColor="#545F71" />
                         </Border>
 
                     </StackLayout>
 
                     <StackLayout Spacing="3">
-                        <Label Padding="5,0,0,0"
-                               HorizontalTextAlignment="Start" 
-                               FontSize="15"
-                               TextColor="White"
-                               VerticalOptions="Start" 
-                               Text="Senha"
-                               FontFamily="Inter"
-                               TextDecorations="Underline"></Label>
+                        <Label
+                            Padding="5,0,0,0"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            HorizontalTextAlignment="Start"
+                            Text="Senha"
+                            TextColor="White"
+                            TextDecorations="Underline"
+                            VerticalOptions="Start" />
 
-                        <Border HorizontalOptions="Center"
-                                WidthRequest="330"
-                                StrokeThickness="2">
+                        <Border
+                            HorizontalOptions="Center"
+                            StrokeThickness="2"
+                            WidthRequest="330">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry FontSize="15"
-                                   BackgroundColor="White"
-                                   TextColor="#545F71" 
-                                   FontFamily="Inter"
-                                   ClearButtonVisibility="WhileEditing"
-                            ></Entry>
+                            <Entry
+                                BackgroundColor="White"
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                IsPassword="True"
+                                Placeholder="Senha"
+                                Text="{Binding Password}"
+                                TextColor="#545F71" />
                         </Border>
                     </StackLayout>
 
@@ -92,25 +105,40 @@
             </StackLayout>
 
 
-            <StackLayout
-                Spacing="70">
-                <Button 
-                    Text="Entrar"
-                    TextColor="White"
+            <StackLayout Spacing="70">
+                <Button
+                    Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                                 Light={StaticResource 'Primary White'}}"
                     BorderColor="White"
-                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
                     BorderWidth="1"
-                    FontSize="17" 
-                    FontFamily="Inter"
+                    Command="{Binding Path=LoginCommand}"
                     FontAttributes="Bold"
-                    Command="{Binding Path=MoveToMainCommand}"
-                    />
+                    FontFamily="Inter"
+                    FontSize="17"
+                    Text="Entrar"
+                    TextColor="White">
+                    <Button.Triggers>
+                        <DataTrigger
+                            Binding="{Binding LoginCommand.IsRunning}"
+                            TargetType="Button"
+                            Value="True">
+                            <Setter Property="Text" Value="" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <ActivityIndicator
+                    HorizontalOptions="Center"
+                    IsRunning="{Binding LoginCommand.IsRunning}"
+                    IsVisible="{Binding LoginCommand.IsRunning}"
+                    VerticalOptions="Center"
+                    Color="{StaticResource Primary}" />
 
                 <Image
-                    Source="itemm_text.png"
+                    HeightRequest="30"
+                    HorizontalOptions="Center"
                     SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                    HeightRequest="30" 
-                    HorizontalOptions="Center" />
+                    Source="itemm_text.png" />
             </StackLayout>
 
         </VerticalStackLayout>

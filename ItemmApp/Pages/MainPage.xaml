@@ -1,24 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
-             x:Class="ItemmApp.MainPage"
-             Shell.NavBarIsVisible="False"
-             x:DataType="viewModel:MainViewModel">
+<ContentPage
+    x:Class="ItemmApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+    x:DataType="viewModel:MainViewModel"
+    Shell.NavBarIsVisible="False">
 
     <ScrollView>
         <Grid>
-            <!-- Elemento de fundo com cor -->
-            <BoxView Color="{AppThemeBinding Dark=#022664, Light=#95CA60}" Opacity="1" />
+            <!--  Elemento de fundo com cor  -->
+            <BoxView Opacity="1" Color="{AppThemeBinding Dark={StaticResource 'Primary Dark'}, Light={StaticResource 'Primary White'}}" />
 
-            <!-- Elemento de imagem (sem fundo) -->
-            <Image Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}" Aspect="Center" />
+            <!--  Elemento de imagem (sem fundo)  -->
+            <Image Aspect="Center" Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}" />
 
             <VerticalStackLayout
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            Spacing="40"
-            Padding="5,0,5,0">
+                Padding="5,0,5,0"
+                HorizontalOptions="Center"
+                Spacing="40"
+                VerticalOptions="Center">
 
                 <StackLayout>
                     <Grid>
@@ -31,34 +32,108 @@
                             <ColumnDefinition Width="190" />
                         </Grid.ColumnDefinitions>
 
-                        <Frame Grid.Row="0" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="10"
+                            BackgroundColor="{AppThemeBinding Dark=#CC000A1B,
+                                                              Light=#CC000000}"
+                            BorderColor="{AppThemeBinding Dark=#CC000A1B,
+                                                          Light=#CC95CA60}"
+                            CornerRadius="10">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Path=MoveToPersonalDepartmentCommand}" />
                             </Frame.GestureRecognizers>
 
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                <Label FontSize="19" Text="Departamento" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label FontSize="19" Text="Pessoal" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="19"
+                                    HorizontalOptions="Center"
+                                    Text="Departamento"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="19"
+                                    HorizontalOptions="Center"
+                                    Text="Pessoal"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
                             </VerticalStackLayout>
 
                         </Frame>
 
-                        <Frame Grid.Row="0" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
+                        <Frame
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="10"
+                            BackgroundColor="{AppThemeBinding Dark=#CC000A1B,
+                                                              Light=#CC000000}"
+                            BorderColor="{AppThemeBinding Dark=#CC000A1B,
+                                                          Light=#CC95CA60}"
+                            CornerRadius="10">
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                <Label FontSize="20" Text="Setor" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label FontSize="20" Text="Social" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    Text="Setor"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    Text="Social"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
                             </VerticalStackLayout>
                         </Frame>
 
-                        <Frame Grid.Row="1" Grid.Column="0" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="10"
+                            BackgroundColor="{AppThemeBinding Dark=#CC000A1B,
+                                                              Light=#CC000000}"
+                            BorderColor="{AppThemeBinding Dark=#CC000A1B,
+                                                          Light=#CC95CA60}"
+                            CornerRadius="10">
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                                <Label FontSize="20" Text="Setor" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
-                                <Label FontSize="20" Text="Pedagógico" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    Text="Setor"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="20"
+                                    HorizontalOptions="Center"
+                                    Text="Pedagógico"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
                             </VerticalStackLayout>
                         </Frame>
 
-                        <Frame Grid.Row="1" Grid.Column="1" BorderColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC95CA60}" BackgroundColor="{AppThemeBinding Dark=#CC000A1B, Light=#CC000000}" CornerRadius="10" Margin="10">
-                            <Label FontSize="19" Text="Configurações" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <Frame
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            BackgroundColor="{AppThemeBinding Dark=#CC000A1B,
+                                                              Light=#CC000000}"
+                            BorderColor="{AppThemeBinding Dark=#CC000A1B,
+                                                          Light=#CC95CA60}"
+                            CornerRadius="10">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="19"
+                                HorizontalOptions="Center"
+                                Text="Configurações"
+                                TextColor="White"
+                                VerticalOptions="Center" />
                         </Frame>
                     </Grid>
                 </StackLayout>

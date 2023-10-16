@@ -4,11 +4,17 @@ namespace ItemmApp;
 
 public partial class PersonalDepartmentPage : ContentPage
 {
-
+    private PersonalDepartmentViewModel _vm;
     public PersonalDepartmentPage(PersonalDepartmentViewModel vm)
 	{
 		InitializeComponent();
-        BindingContext = vm;
+        BindingContext = _vm = vm;
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await _vm.InitAsync();
     }
 
 }

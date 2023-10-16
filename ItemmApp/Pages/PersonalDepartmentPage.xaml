@@ -1,63 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
-             x:Class="ItemmApp.PersonalDepartmentPage"
-             BackgroundColor="{AppThemeBinding Dark=#022664, Light=#95CA60}"
-             Shell.NavBarIsVisible="False"
-             x:DataType="viewModel:PersonalDepartmentViewModel">
+<ContentPage
+    x:Class="ItemmApp.PersonalDepartmentPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:response="using:ItemmApp.Models.Response"
+    xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
+    x:DataType="viewModel:PersonalDepartmentViewModel"
+    BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                      Light={StaticResource 'Primary White'}}">
 
     <ScrollView>
         <VerticalStackLayout
-            VerticalOptions="Center"
+            Padding="20,0,20,0"
             HorizontalOptions="Center"
             Spacing="30"
-            Padding="20,0,20,0">
+            VerticalOptions="Center">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
-                <Frame BackgroundColor="White" CornerRadius="40" WidthRequest="45" HeightRequest="45" HasShadow="True">
+                <Frame
+                    BackgroundColor="White"
+                    CornerRadius="40"
+                    HasShadow="True"
+                    HeightRequest="45"
+                    WidthRequest="45">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
                     </Frame.GestureRecognizers>
 
-                    <Image Source="arrow_icon.png" Aspect="AspectFit" WidthRequest="20" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Image
+                        Aspect="AspectFit"
+                        HeightRequest="20"
+                        HorizontalOptions="Center"
+                        Source="arrow_icon.png"
+                        VerticalOptions="Center"
+                        WidthRequest="20" />
                 </Frame>
 
                 <HorizontalStackLayout Spacing="10">
                     <Image
-                        Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
-                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
                         HeightRequest="50"
-                        HorizontalOptions="Center" />
+                        HorizontalOptions="Center"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        Source="{AppThemeBinding Dark=itemm_logo_dark.png,
+                                                 Light=itemm_logo_light.png}" />
 
                     <Image
-                        Source="itemm_text.png"
-                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
                         HeightRequest="20"
-                        HorizontalOptions="Center" />
+                        HorizontalOptions="Center"
+                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                        Source="itemm_text.png" />
                 </HorizontalStackLayout>
 
             </HorizontalStackLayout>
-            
-            <StackLayout Spacing="20">
-                
-                <StackLayout Spacing="3">
-                    <Label Padding="5,0,0,0"
-                           HorizontalTextAlignment="Start" 
-                           FontSize="15"
-                           TextColor="White"
-                           VerticalOptions="Start" 
-                           Text="Turma"
-                           FontFamily="Inter"
-                           TextDecorations="Underline"></Label>
 
-                    <Border
-                        StrokeThickness="2">
+            <StackLayout Spacing="20">
+
+                <StackLayout Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        HorizontalTextAlignment="Start"
+                        Text="Turma"
+                        TextColor="White"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
+
+                    <Border StrokeThickness="2">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="10" />
                         </Border.StrokeShape>
 
-                        <Picker BackgroundColor="White"></Picker>
+                        <Picker
+                            BackgroundColor="White"
+                            ItemDisplayBinding="{Binding Name}"
+                            ItemsSource="{Binding Classes}"
+                            TextColor="#545F71" />
                     </Border>
 
                 </StackLayout>
@@ -65,73 +83,74 @@
                 <StackLayout Spacing="10">
 
                     <StackLayout Spacing="3">
-                        <Label Padding="5,0,0,0"
-                               HorizontalTextAlignment="Start" 
-                               FontSize="15"
-                               TextColor="White"
-                               VerticalOptions="Start" 
-                               Text="Aluno"
-                               FontFamily="Inter"
-                               TextDecorations="Underline"></Label>
+                        <Label
+                            Padding="5,0,0,0"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            HorizontalTextAlignment="Start"
+                            Text="Aluno"
+                            TextColor="White"
+                            TextDecorations="Underline"
+                            VerticalOptions="Start" />
 
-                        <Border
-                            StrokeThickness="2">
+                        <Border StrokeThickness="2">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry FontSize="15" 
-                                   TextColor="#545F71" 
-                                   BackgroundColor="White"
-                                   IsPassword="False" 
-                                   FontFamily="Inter" 
-                                   ClearButtonVisibility="WhileEditing"></Entry>
+                            <Entry
+                                BackgroundColor="White"
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                IsPassword="False"
+                                TextColor="#545F71" />
                         </Border>
 
                     </StackLayout>
 
-                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
-                        <Button 
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Button
+                            Background="{AppThemeBinding Dark=#022664,
+                                                         Light=#95CA60}"
+                            BorderColor="White"
+                            BorderWidth="1"
+                            Command="{Binding Path=MoveToCadasterScreenCommand}"
+                            FontAttributes="Bold"
+                            FontFamily="Inter"
+                            FontSize="12"
+                            HeightRequest="40"
                             Text="Adicionar"
                             TextColor="White"
+                            WidthRequest="100" />
+
+                        <Button
+                            Background="{AppThemeBinding Dark=#022664,
+                                                         Light=#95CA60}"
                             BorderColor="White"
                             BorderWidth="1"
-                            Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
-                            FontSize="12" 
-                            FontFamily="Inter"
+                            Command="{Binding Path=MoveToUpdateCadasterScreenCommand}"
                             FontAttributes="Bold"
-                            WidthRequest="100"
+                            FontFamily="Inter"
+                            FontSize="12"
                             HeightRequest="40"
-                            Command="{Binding Path=MoveToCadasterScreenCommand}"
-                        />
-
-                        <Button 
                             Text="Atualizar"
                             TextColor="White"
+                            WidthRequest="100" />
+
+                        <Button
+                            Background="{AppThemeBinding Dark=#022664,
+                                                         Light=#95CA60}"
                             BorderColor="White"
                             BorderWidth="1"
-                            Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
-                            FontSize="12" 
-                            FontFamily="Inter"
+                            Command="{Binding Path=MoveToAttendanceScreenCommand}"
                             FontAttributes="Bold"
-                            WidthRequest="100"
+                            FontFamily="Inter"
+                            FontSize="12"
                             HeightRequest="40"
-                            Command="{Binding Path=MoveToUpdateCadasterScreenCommand}"
-                        />
-
-                        <Button 
                             Text="Remover"
                             TextColor="White"
-                            BorderColor="White"
-                            BorderWidth="1"
-                            Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
-                            FontSize="12" 
-                            FontFamily="Inter"
-                            FontAttributes="Bold"
-                            WidthRequest="100"
-                            HeightRequest="40"
-                            Command="{Binding Path=MoveToAttendanceScreenCommand}"
-                        />
+                            WidthRequest="100" />
                     </HorizontalStackLayout>
 
                 </StackLayout>
@@ -139,24 +158,64 @@
             </StackLayout>
 
             <StackLayout>
-                <Frame BackgroundColor="White" HeightRequest="400">
-                    <ListView></ListView>
-                </Frame>
+                <CollectionView
+                    Margin="20"
+                    EmptyView="Nenhum item encontrado"
+                    ItemsSource="{Binding Students}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                x:DataType="response:StudentResponse"
+                                ColumnDefinitions="*,*"
+                                RowDefinitions="auto,auto,auto,auto"
+                                RowSpacing="5">
+
+                                <Label FontAttributes="Bold" Text="{Binding Name}" />
+
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="End"
+                                    Text="{Binding Cpf, StringFormat='{0:###\\.###\\.###-##}'}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="Body"
+                                    Text="{Binding ClassName}" />
+
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    FontSize="Body"
+                                    HorizontalOptions="End"
+                                    Text="{Binding City}" />
+
+                                <BoxView
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                    HeightRequest="1" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
 
             <StackLayout>
 
-                <Button 
-                    Text="Gerar certificado"
-                    TextColor="White"
+                <Button
+                    Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                                 Light={StaticResource 'Primary White'}}"
                     BorderColor="White"
                     BorderWidth="1"
-                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
-                    FontSize="12" 
-                    FontFamily="Inter"
-                    FontAttributes="Bold"
                     Command="{Binding Path=MoveToAssessmentScreenCommand}"
-                />
+                    FontAttributes="Bold"
+                    FontFamily="Inter"
+                    FontSize="12"
+                    Text="Gerar certificado"
+                    TextColor="White" />
             </StackLayout>
 
         </VerticalStackLayout>
