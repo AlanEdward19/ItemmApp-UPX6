@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using InventarioMobile.ViewModels;
 using Microsoft.Toolkit.Mvvm.Input;
 
 namespace ItemmApp.ViewModel;
 
-public partial class PersonalDepartmentAddAssessmentViewModel : ObservableObject
+public partial class PersonalDepartmentAddAssessmentViewModel : BaseViewModel
 {
-    [ICommand]
-    async Task MoveBack() => await Shell.Current.GoToAsync("..");
+
 }
