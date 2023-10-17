@@ -14,6 +14,8 @@ public static class SessionHelper
 
         if (expireDateTime <= DateTime.Now)
         {
+            await Shell.Current.DisplayAlert("Atenção", "Token expirado, você será redirecionado para pagina de login",
+                "Ok");
             await Shell.Current.GoToAsync(nameof(LoginPage));
             return string.Empty;
         }
