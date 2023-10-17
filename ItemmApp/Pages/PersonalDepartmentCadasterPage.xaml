@@ -80,10 +80,9 @@
                         ClearButtonVisibility="WhileEditing"
                         FontFamily="Inter"
                         FontSize="15"
-                        IsPassword="True"
+                        Text="{Binding Name}"
                         TextColor="#545F71" />
                 </Border>
-
 
             </StackLayout>
 
@@ -91,16 +90,18 @@
 
                 <StackLayout>
 
-                    <Grid ColumnSpacing="20">
+                    <Grid ColumnSpacing="20" RowSpacing="20">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
@@ -132,9 +133,9 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding Cpf}"
                                     TextColor="#545F71" />
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -156,9 +157,13 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
 
-                                <Picker BackgroundColor="White" TextColor="#545F71" />
+                                <Picker
+                                    BackgroundColor="White"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    ItemsSource="{Binding Companies}"
+                                    SelectedItem="{Binding SelectedCompany}"
+                                    TextColor="#545F71" />
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -180,9 +185,13 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
 
-                                <Picker BackgroundColor="White" TextColor="#545F71" />
+                                <Picker
+                                    BackgroundColor="White"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    ItemsSource="{Binding Polos}"
+                                    SelectedItem="{Binding SelectedPolo}"
+                                    TextColor="#545F71" />
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -204,7 +213,12 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
 
-                                <Picker BackgroundColor="White" TextColor="#545F71" />
+                                <Picker
+                                    BackgroundColor="White"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    ItemsSource="{Binding Classes}"
+                                    SelectedItem="{Binding SelectedClass}"
+                                    TextColor="#545F71" />
                             </Border>
 
                         </StackLayout>
@@ -218,7 +232,7 @@
                                 FontFamily="Inter"
                                 FontSize="15"
                                 HorizontalTextAlignment="Start"
-                                Text="RG"
+                                Text="Horas Práticas"
                                 TextColor="White"
                                 TextDecorations="Underline"
                                 VerticalOptions="Start" />
@@ -234,9 +248,9 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding PracticeHours}"
                                     TextColor="#545F71" />
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -264,9 +278,9 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding PhoneNumber}"
                                     TextColor="#545F71" />
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -294,6 +308,7 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding City}"
                                     TextColor="#545F71" />
                             </Border>
 
@@ -318,7 +333,12 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
 
-                                <Picker BackgroundColor="White" TextColor="#545F71" />
+                                <Picker
+                                    BackgroundColor="White"
+                                    ItemDisplayBinding="{Binding Name}"
+                                    ItemsSource="{Binding Functions}"
+                                    SelectedItem="{Binding SelectedFunction}"
+                                    TextColor="#545F71" />
                             </Border>
 
                         </StackLayout>
@@ -348,6 +368,7 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding ContractPeriod, StringFormat='{0} Meses'}"
                                     TextColor="#545F71" />
                             </Border>
 
@@ -373,9 +394,11 @@
                                 </Border.StrokeShape>
 
                                 <DatePicker
+                                    BackgroundColor="White"
+                                    Date="{Binding AdmissionDate}"
                                     Format="dd/MM/yyyy"
                                     HorizontalOptions="Fill"
-                                    Style="{StaticResource DatePickerBackground}" />
+                                    TextColor="#545F71" />
                             </Border>
 
                         </StackLayout>
@@ -400,9 +423,11 @@
                                 </Border.StrokeShape>
 
                                 <DatePicker
+                                    BackgroundColor="White"
+                                    Date="{Binding EndDate}"
                                     Format="dd/MM/yyyy"
                                     HorizontalOptions="Fill"
-                                    Style="{StaticResource DatePickerBackground}" />
+                                    TextColor="#545F71" />
                             </Border>
 
                         </StackLayout>
@@ -432,9 +457,9 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding FirstDayOfTrainingIntroduction}"
                                     TextColor="#545F71" />
                             </Border>
-
 
                         </StackLayout>
 
@@ -463,9 +488,9 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding FinalDayTrainingIntroduction}"
                                     TextColor="#545F71" />
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -493,6 +518,7 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding FirstDayOfWeeklyTraining}"
                                     TextColor="#545F71" />
                             </Border>
 
@@ -516,16 +542,15 @@
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
-                                <Entry
+
+                                <Picker
                                     BackgroundColor="White"
-                                    ClearButtonVisibility="WhileEditing"
                                     FontFamily="Inter"
                                     FontSize="15"
-                                    IsPassword="False"
+                                    ItemsSource="{Binding DaysOfWeek}"
+                                    SelectedItem="{Binding DayOfTrainingWeek}"
                                     TextColor="#545F71" />
-
                             </Border>
-
                         </StackLayout>
 
                         <StackLayout
@@ -549,16 +574,135 @@
                                 </Border.StrokeShape>
 
                                 <DatePicker
+                                    BackgroundColor="White"
+                                    Date="{Binding BirthDate}"
                                     Format="dd/MM/yyyy"
                                     HorizontalOptions="Fill"
-                                    Style="{StaticResource DatePickerBackground}" />
+                                    TextColor="#545F71" />
                             </Border>
 
                         </StackLayout>
 
+                        <StackLayout
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            Spacing="3"
+                            VerticalOptions="Center">
+                            <Label
+                                Padding="5,0,0,0"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                HorizontalTextAlignment="Start"
+                                Text="Horas Teoricas"
+                                TextColor="White"
+                                TextDecorations="Underline"
+                                VerticalOptions="Start" />
+
+                            <Border StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
+                                <Entry
+                                    BackgroundColor="White"
+                                    ClearButtonVisibility="WhileEditing"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    IsPassword="False"
+                                    Text="{Binding TheoreticalHours}"
+                                    TextColor="#545F71" />
+                            </Border>
+
+                        </StackLayout>
+
+                        <StackLayout
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Spacing="3"
+                            VerticalOptions="Center">
+                            <Label
+                                Padding="5,0,0,0"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                HorizontalTextAlignment="Start"
+                                Text="Modelo"
+                                TextColor="White"
+                                TextDecorations="Underline"
+                                VerticalOptions="Start" />
+
+                            <Border StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
+                                <Picker
+                                    BackgroundColor="White"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    ItemsSource="{Binding Models}"
+                                    SelectedItem="{Binding Model}"
+                                    TextColor="#545F71" />
+                            </Border>
+
+                        </StackLayout>
+
+                        <StackLayout
+                            Grid.Row="9"
+                            Grid.Column="0"
+                            Spacing="3"
+                            VerticalOptions="Center">
+                            <Label
+                                Padding="5,0,0,0"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                HorizontalTextAlignment="Start"
+                                Text="Motivo da rescisão"
+                                TextColor="White"
+                                TextDecorations="Underline"
+                                VerticalOptions="Start" />
+
+                            <Border StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
+                                <Picker
+                                    BackgroundColor="White"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    ItemsSource="{Binding ReasonsForTermination}"
+                                    SelectedItem="{Binding ReasonForTermination}"
+                                    TextColor="#545F71" />
+                            </Border>
+
+                        </StackLayout>
+
+                        <StackLayout
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Spacing="3">
+                            <Label
+                                Padding="5,0,0,0"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                HorizontalTextAlignment="Start"
+                                Text="Status"
+                                TextColor="White"
+                                TextDecorations="Underline"
+                                VerticalOptions="Start" />
+
+                            <Border StrokeThickness="2">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="10" />
+                                </Border.StrokeShape>
+
+                                <Switch IsToggled="{Binding Status}" />
+                            </Border>
+                        </StackLayout>
+
                     </Grid>
 
-                    <StackLayout Spacing="3">
+                    <StackLayout Padding="0,10,0,0" Spacing="3">
                         <Label
                             Padding="5,0,0,0"
                             FontFamily="Inter"
@@ -580,6 +724,7 @@
                                 FontFamily="Inter"
                                 FontSize="15"
                                 IsPassword="False"
+                                Text="{Binding ScheduleTrainingInitialeFinal}"
                                 TextColor="#545F71" />
                         </Border>
 
@@ -593,6 +738,7 @@
                                                      Light=#95CA60}"
                         BorderColor="White"
                         BorderWidth="1"
+                        Command="{Binding Path=AddStudentCommand}"
                         FontAttributes="Bold"
                         FontFamily="Inter"
                         FontSize="12"

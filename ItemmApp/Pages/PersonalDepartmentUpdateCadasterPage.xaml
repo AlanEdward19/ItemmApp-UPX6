@@ -9,15 +9,6 @@
     BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
                                       Light={StaticResource 'Primary White'}}">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <converters:BoolToObjectConverter
-                x:Key="BoolToObjectConverter"
-                FalseObject="Inativo"
-                TrueObject="Ativo" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ScrollView>
         <VerticalStackLayout
             Padding="20,0,20,0"
@@ -546,13 +537,12 @@
                                     <RoundRectangle CornerRadius="10" />
                                 </Border.StrokeShape>
 
-                                <Entry
+                                <Picker
                                     BackgroundColor="White"
-                                    ClearButtonVisibility="WhileEditing"
                                     FontFamily="Inter"
                                     FontSize="15"
-                                    IsPassword="False"
-                                    Text="{Binding FirstDayOfWeeklyTraining}"
+                                    ItemsSource="{Binding DaysOfWeek}"
+                                    SelectedItem="{Binding DayOfTrainingWeek}"
                                     TextColor="#545F71" />
                             </Border>
                         </StackLayout>
