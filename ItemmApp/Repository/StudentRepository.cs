@@ -15,9 +15,12 @@ public class StudentRepository : IStudentRepository
             .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).GetJsonAsync<IEnumerable<StudentResponse>>();
     }
 
-    public async Task<bool> AddAsync(StudentRequest request)
+    public async Task<bool> AddAsync(InsertStudentRequest request)
     {
-        throw new NotImplementedException();
+        var response = await Constants.ApiUrl.AppendPathSegment($"/Student")
+            .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).PostJsonAsync(request);
+
+        return response.ResponseMessage.IsSuccessStatusCode;
     }
 
     public async Task<bool> UpdateAsync(StudentRequest request, string cpf)
