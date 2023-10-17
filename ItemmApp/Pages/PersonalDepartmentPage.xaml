@@ -143,7 +143,7 @@
                                                          Light=#95CA60}"
                             BorderColor="White"
                             BorderWidth="1"
-                            Command="{Binding Path=MoveToAttendanceScreenCommand}"
+                            Command="{Binding Path=DeleteStudentCommand}"
                             FontAttributes="Bold"
                             FontFamily="Inter"
                             FontSize="12"
@@ -160,10 +160,10 @@
             <StackLayout>
                 <CollectionView
                     Margin="20"
-                    SelectionMode="Single"
-                    SelectedItem="{Binding SelectedStudent}"
                     EmptyView="Nenhum item encontrado"
-                    ItemsSource="{Binding Students}">
+                    ItemsSource="{Binding Students}"
+                    SelectedItem="{Binding SelectedStudent}"
+                    SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <SwipeView>

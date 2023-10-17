@@ -17,7 +17,7 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         = new();
 
     [ObservableProperty] 
-    StudentResponse selectedStudent;
+    public StudentResponse? selectedStudent;
 
     public ObservableCollection<ClassResponse> Classes { get; set; }
         = new();
@@ -31,21 +31,29 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         _classRepository = classRepository;
     }
 
+    internal async Task UpdateClassesList()
+    {
+        var classes = await _classRepository.GetClassesAsync();
+        Classes.Clear();
+
+        foreach (var @class in classes)
+            Classes.Add(@class);
+    }
+    internal async Task UpdateStudentsList()
+    {
+        var students = await _studentRepository.GetStudentsAsync();
+
+        Students.Clear();
+
+        foreach (var student in students)
+            Students.Add(student);
+    }
     internal async Task InitAsync()
     {
         IsBusy = true;
 
-        var students = await _studentRepository.GetStudentsAsync();
-        var classes = await _classRepository.GetClassesAsync();
-
-        Students.Clear();
-        Classes.Clear();
-
-        foreach (var student in students)
-            Students.Add(student);
-
-        foreach (var @class in classes)
-            Classes.Add(@class);
+        await UpdateStudentsList();
+        await UpdateClassesList();
 
         IsBusy = false;
     }
@@ -107,6 +115,37 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         {
             await Shell.Current.DisplayAlert("Erro", $"Erro: {ex.Message}", "OK");
         }
+    }
+
+    [RelayCommand]
+    public async Task DeleteStudent()
+    {
+        if (selectedStudent == null)
+        {
+            await Shell.Current.DisplayAlert("Atenção", "Nenhum aluno foi selecionado, impossivel prosseguir com deleção", "OK");
+            return;
+        }
+
+        bool sucess = await _studentRepository.DeleteAsync(selectedStudent.Cpf);
+
+        if (sucess)
+        {
+            IsBusy = true;
+
+            selectedStudent = null;
+
+            await UpdateStudentsList();
+
+            IsBusy = false;
+
+            await Shell.Current.DisplayAlert("Sucesso", "Aluno foi deletado com sucesso", "OK");
+        }
+        else
+        {
+            await Shell.Current.DisplayAlert("Atenção", "Houve um erro ao tentar deletar aluno, tente novamente!", "OK");
+        }
+
+        
     }
 
 }

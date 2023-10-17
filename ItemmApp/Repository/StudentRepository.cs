@@ -24,4 +24,12 @@ public class StudentRepository : IStudentRepository
     {
         throw new NotImplementedException();
     }
+
+    public async Task<bool> DeleteAsync(string cpf)
+    {
+        var response = await Constants.ApiUrl.AppendPathSegment($"/Student").SetQueryParam("cpf", cpf)
+            .WithOAuthBearerToken(Preferences.Get("token", string.Empty)).DeleteAsync();
+
+        return response.ResponseMessage.IsSuccessStatusCode;
+    }
 }
