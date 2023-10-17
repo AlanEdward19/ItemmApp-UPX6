@@ -137,6 +137,7 @@
 	<ItemGroup>
 	  <Folder Include="Models\Response\" />
 	  <Folder Include="Files\" />
+	  <Folder Include="Enums\" />
 	  <Folder Include="Validators\" />
 	</ItemGroup>
 
