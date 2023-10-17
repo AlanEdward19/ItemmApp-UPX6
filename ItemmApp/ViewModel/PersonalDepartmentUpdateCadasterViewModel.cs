@@ -24,6 +24,8 @@ public partial class PersonalDepartmentUpdateCadasterViewModel : BaseViewModel
     [ObservableProperty]
     public List<string> models = Enum.GetNames<EModel>().ToList();
 
+    [ObservableProperty]
+    public List<string> daysOfWeek = Enum.GetNames<EWeekDay>().ToList();
 
     public ObservableCollection<ClassResponse> Classes { get; set; }
         = new();
@@ -182,7 +184,7 @@ public partial class PersonalDepartmentUpdateCadasterViewModel : BaseViewModel
             var request = new StudentRequest(Name, City, BirthDate, SelectedCompany.Cnpj, SelectedFunction.Id,
                 SelectedClass.Id, PracticeHours, TheoreticalHours, Model, ReasonForTermination, ContractPeriod, Status,
                 PhoneNumber, SelectedPolo.Id, EndDate, AdmissionDate, FirstDayOfTrainingIntroduction,
-                finalDayTrainingIntroduction, firstDayOfWeeklyTraining, DayOfTrainingWeek,
+                FinalDayTrainingIntroduction, FirstDayOfWeeklyTraining, DayOfTrainingWeek,
                 ScheduleTrainingInitialeFinal);
 
             bool sucess = await _studentRepository.UpdateAsync(request, Cpf);
