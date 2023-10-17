@@ -1,11 +1,13 @@
 ﻿using System.Text;
 using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.ComponentModel;
 using InventarioMobile.ViewModels;
 using ItemmApp.Interfaces;
 using ItemmApp.Models.Request;
 using Microsoft.Toolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Input;
+using ItemmApp.Helpers;
 using ItemmApp.Validators;
 
 
@@ -14,6 +16,7 @@ namespace ItemmApp.ViewModel;
 public partial class LoginViewModel : BaseViewModel
 {
     [ObservableProperty] public bool isPassword = true;
+    [ObservableProperty] public bool isEnabled = true;
     [ObservableProperty]
     string email;
 
@@ -35,6 +38,7 @@ public partial class LoginViewModel : BaseViewModel
     [RelayCommand]
     public async Task Login()
     {
+        IsEnabled = false;
         var loginRequest = new LoginRequest(Email, Password);
 
         var contract = new LoginValidator(loginRequest);
@@ -52,15 +56,21 @@ public partial class LoginViewModel : BaseViewModel
         }
 
         var result = await _loginRepository.LoginAsync(loginRequest);
+        IToast toast;
 
         if (result is null || string.IsNullOrEmpty(result.token))
         {
-            var toast = Toast.Make("Falha ao realizar login, tente novamente!", CommunityToolkit.Maui.Core.ToastDuration.Long);
+            toast = Toast.Make("Falha ao realizar login, tente novamente!", ToastDuration.Long);
             await toast.Show();
             return;
         }
 
-        Preferences.Set("token", result.token);
+        toast = Toast.Make("Login efetuado com sucesso!", ToastDuration.Long);
+        await toast.Show();
+
+        SessionHelper.SaveToken(result.token, DateTime.Now.AddMinutes(30));
+        IsEnabled = true;
+
         await Shell.Current.GoToAsync(nameof(MainPage));
     }
 }

@@ -62,7 +62,24 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
     async Task MoveToCadasterScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentCadasterPage));
 
     [ICommand]
-    async Task MoveToUpdateCadasterScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentUpdateCadasterPage));
+    async Task MoveBackToMain() => await Shell.Current.GoToAsync(nameof(MainPage));
+
+    [ICommand]
+    async Task MoveToUpdateCadasterScreen()
+    {
+        if (selectedStudent == null)
+        {
+            await Shell.Current.DisplayAlert("Atenção", "Nenhum aluno foi selecionado, impossivel prosseguir com deleção", "OK");
+            return;
+        }
+
+        var navigationParams = new Dictionary<string, object>
+        {
+            {"Student", selectedStudent }
+        };
+
+        await Shell.Current.GoToAsync(nameof(PersonalDepartmentUpdateCadasterPage), navigationParams);
+    }
 
     [ICommand]
     async Task MoveToAttendanceScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAttendancePage));
@@ -74,38 +91,28 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
     public async Task GenerateCertificate()
     {
         //await Shell.Current.DisplayAlert("Atenção", "Presença do aluno inferior a 75%.", "OK");
-
         try
         {
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             string docxTemplatePath = Path.Combine(basePath, "../../../../../Files", "CertificadoIttem.docx");
-            string docxOutputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saida.docx");
+
+            var resultado = await FolderPicker.PickAsync(new CancellationToken());
+            string docxOutputPath = Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx");
 
             // Dicionário de substituição
             Dictionary<string, string> changes = new Dictionary<string, string>
             {
 
-                { "rg do aluno", Converter.FormatCpf(selectedStudent.Cpf) },
+                {"rg do aluno", Converter.FormatCpf(selectedStudent.Cpf) },
                 {"nome da empresa", selectedStudent.CompanyName},
                 {"função do aluno", selectedStudent.FunctionName},
                 {"data1", selectedStudent.AdmissionDate.ToString("dd/MM/yyyy")},
                 {"data2", selectedStudent.EndDate.ToString("dd/MM/yyyy")}
             };
 
-            Converter.FillDOCX(docxTemplatePath, docxOutputPath, changes);
-
-
-            // Agora, use o FilePicker para permitir que o usuário escolha o local de salvamento
-            var opcoes = new PickOptions
-            {
-                PickerTitle = "Salvar Arquivo",
-            };
-
-            var resultado = await FolderPicker.PickAsync(new CancellationToken());
             if (resultado != null)
             {
-                // Copie o arquivo para o local escolhido pelo usuário
-                File.Copy(docxOutputPath, Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx"), true);
+                Converter.FillDOCX(docxTemplatePath, docxOutputPath, changes);
 
                 // Informe ao usuário que o arquivo foi salvo
                 await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
@@ -126,25 +133,29 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
             return;
         }
 
-        bool sucess = await _studentRepository.DeleteAsync(selectedStudent.Cpf);
+        bool answer = await Shell.Current.DisplayAlert("Atenção", $"Deseja mesmo excluir o Aluno: {selectedStudent.Name}?", "Sim", "Não");
 
-        if (sucess)
+        if (answer)
         {
-            IsBusy = true;
+            bool sucess = await _studentRepository.DeleteAsync(selectedStudent.Cpf);
 
-            selectedStudent = null;
+            if (sucess)
+            {
+                IsBusy = true;
 
-            await UpdateStudentsList();
+                selectedStudent = null;
 
-            IsBusy = false;
+                await UpdateStudentsList();
 
-            await Shell.Current.DisplayAlert("Sucesso", "Aluno foi deletado com sucesso", "OK");
+                IsBusy = false;
+
+                await Shell.Current.DisplayAlert("Sucesso", "Aluno foi deletado com sucesso", "OK");
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Atenção", "Houve um erro ao tentar deletar aluno, tente novamente!", "OK");
+            }
         }
-        else
-        {
-            await Shell.Current.DisplayAlert("Atenção", "Houve um erro ao tentar deletar aluno, tente novamente!", "OK");
-        }
-
         
     }
 
