@@ -160,44 +160,69 @@
             <StackLayout>
                 <CollectionView
                     Margin="20"
+                    SelectionMode="Single"
+                    SelectedItem="{Binding SelectedStudent}"
                     EmptyView="Nenhum item encontrado"
                     ItemsSource="{Binding Students}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid
-                                x:DataType="response:StudentResponse"
-                                ColumnDefinitions="*,*"
-                                RowDefinitions="auto,auto,auto,auto"
-                                RowSpacing="5">
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems Mode="Execute">
+                                        <SwipeItem
+                                            BackgroundColor="Red"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:PersonalDepartmentViewModel}}, Path=MoveToAssessmentScreenCommand}"
+                                            IconImageSource="favorite.png"
+                                            Text="Avaliação" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            BackgroundColor="LightGreen"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:PersonalDepartmentViewModel}}, Path=MoveToAttendanceScreenCommand}"
+                                            IconImageSource="favorite.png"
+                                            Text="Presença" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
 
-                                <Label FontAttributes="Bold" Text="{Binding Name}" />
+                                <SwipeView.Content>
+                                    <Grid
+                                        x:DataType="response:StudentResponse"
+                                        ColumnDefinitions="*,*"
+                                        RowDefinitions="auto,auto,auto,auto, 10"
+                                        RowSpacing="5">
 
-                                <Label
-                                    Grid.Row="0"
-                                    Grid.Column="1"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="End"
-                                    Text="{Binding Cpf, StringFormat='{0:###\\.###\\.###-##}'}" />
+                                        <Label FontAttributes="Bold" Text="{Binding Name}" />
 
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="0"
-                                    FontSize="Body"
-                                    Text="{Binding ClassName}" />
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="End"
+                                            Text="{Binding Cpf, StringFormat='{0:###\\.###\\.###-##}'}" />
 
-                                <Label
-                                    Grid.Row="1"
-                                    Grid.Column="1"
-                                    FontSize="Body"
-                                    HorizontalOptions="End"
-                                    Text="{Binding City}" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            FontSize="Body"
+                                            Text="{Binding ClassName}" />
 
-                                <BoxView
-                                    Grid.Row="3"
-                                    Grid.ColumnSpan="2"
-                                    HeightRequest="1" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontSize="Body"
+                                            HorizontalOptions="End"
+                                            Text="{Binding City}" />
 
-                            </Grid>
+                                        <BoxView
+                                            Grid.Row="3"
+                                            Grid.ColumnSpan="2"
+                                            HeightRequest="1" />
+
+                                    </Grid>
+                                </SwipeView.Content>
+                            </SwipeView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -210,7 +235,7 @@
                                                  Light={StaticResource 'Primary White'}}"
                     BorderColor="White"
                     BorderWidth="1"
-                    Command="{Binding Path=MoveToAssessmentScreenCommand}"
+                    Command="{Binding Path=GenerateCertificateCommand}"
                     FontAttributes="Bold"
                     FontFamily="Inter"
                     FontSize="12"

@@ -4,6 +4,9 @@ using InventarioMobile.ViewModels;
 using ItemmApp.Models.Response;
 using Microsoft.Toolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
+using CommunityToolkit.Maui.Storage;
+using CommunityToolkit.Mvvm.Input;
+using ItemmApp.Helpers;
 using ItemmApp.Interfaces;
 
 namespace ItemmApp.ViewModel;
@@ -12,6 +15,9 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
 {
     public ObservableCollection<StudentResponse> Students { get; set; }
         = new();
+
+    [ObservableProperty] 
+    StudentResponse selectedStudent;
 
     public ObservableCollection<ClassResponse> Classes { get; set; }
         = new();
@@ -55,4 +61,52 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
 
     [ICommand]
     async Task MoveToAssessmentScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAssessmentPage));
+
+    [RelayCommand]
+    public async Task GenerateCertificate()
+    {
+        //await Shell.Current.DisplayAlert("Atenção", "Presença do aluno inferior a 75%.", "OK");
+
+        try
+        {
+            string basePath = AppDomain.CurrentDomain.BaseDirectory;
+            string docxTemplatePath = Path.Combine(basePath, "../../../../../Files", "CertificadoIttem.docx");
+            string docxOutputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "saida.docx");
+
+            // Dicionário de substituição
+            Dictionary<string, string> changes = new Dictionary<string, string>
+            {
+
+                { "rg do aluno", Converter.FormatCpf(selectedStudent.Cpf) },
+                {"nome da empresa", selectedStudent.CompanyName},
+                {"função do aluno", selectedStudent.FunctionName},
+                {"data1", selectedStudent.AdmissionDate.ToString("dd/MM/yyyy")},
+                {"data2", selectedStudent.EndDate.ToString("dd/MM/yyyy")}
+            };
+
+            Converter.FillDOCX(docxTemplatePath, docxOutputPath, changes);
+
+
+            // Agora, use o FilePicker para permitir que o usuário escolha o local de salvamento
+            var opcoes = new PickOptions
+            {
+                PickerTitle = "Salvar Arquivo",
+            };
+
+            var resultado = await FolderPicker.PickAsync(new CancellationToken());
+            if (resultado != null)
+            {
+                // Copie o arquivo para o local escolhido pelo usuário
+                File.Copy(docxOutputPath, Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx"), true);
+
+                // Informe ao usuário que o arquivo foi salvo
+                await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert("Erro", $"Erro: {ex.Message}", "OK");
+        }
+    }
+
 }
