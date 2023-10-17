@@ -24,7 +24,7 @@
                     HeightRequest="45"
                     WidthRequest="45">
                     <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
+                        <TapGestureRecognizer Command="{Binding Path=MoveBackToMainCommand}" />
                     </Frame.GestureRecognizers>
 
                     <Image
