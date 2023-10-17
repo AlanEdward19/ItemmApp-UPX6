@@ -3,7 +3,7 @@ using ItemmApp.Models.Response;
 
 namespace ItemmApp.Interfaces;
 
-public interface IClassRepository
+public interface ICompanyRepository
 {
-    Task<IEnumerable<ClassResponse>> GetClassesAsync();
+    Task<IEnumerable<CompanyResponse>> GetCompaniesAsync();
 }

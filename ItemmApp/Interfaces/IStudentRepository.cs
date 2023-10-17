@@ -7,6 +7,6 @@ public interface IStudentRepository
 {
     Task<IEnumerable<StudentResponse>> GetStudentsAsync();
     Task<bool> AddAsync(StudentRequest request);
-    Task<bool> UpdateAsync(StudentRequest request);
+    Task<bool> UpdateAsync(StudentRequest request, string cpf);
     Task<bool> DeleteAsync(string cpf);
 }

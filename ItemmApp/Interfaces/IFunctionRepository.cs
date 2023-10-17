@@ -3,7 +3,7 @@ using ItemmApp.Models.Response;
 
 namespace ItemmApp.Interfaces;
 
-public interface IClassRepository
+public interface IFunctionRepository
 {
-    Task<IEnumerable<ClassResponse>> GetClassesAsync();
+    Task<IEnumerable<FunctionResponse>> GetFunctionsAsync();
 }
