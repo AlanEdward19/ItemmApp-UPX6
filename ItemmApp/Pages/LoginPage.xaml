@@ -88,17 +88,32 @@
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry
-                                BackgroundColor="White"
-                                ClearButtonVisibility="WhileEditing"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                IsPassword="True"
-                                Placeholder="Senha"
-                                Text="{Binding Password}"
-                                TextColor="#545F71" />
+                            <Grid>
+                                <Entry
+                                    BackgroundColor="White"
+                                    ClearButtonVisibility="WhileEditing"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    IsPassword="{Binding IsPassword, Mode=TwoWay}"
+                                    Placeholder="Senha"
+                                    Text="{Binding Password}"
+                                    TextColor="#545F71" />
+
+                                <Image
+                                    Margin="0,0,8,0"
+                                    HeightRequest="24"
+                                    HorizontalOptions="End"
+                                    Source="eye_close.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="24">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=TogglePasswordVisibilityCommand}" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
                         </Border>
                     </StackLayout>
+
 
                 </StackLayout>
 

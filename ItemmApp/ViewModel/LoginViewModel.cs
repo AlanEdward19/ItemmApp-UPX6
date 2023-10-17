@@ -13,6 +13,7 @@ namespace ItemmApp.ViewModel;
 
 public partial class LoginViewModel : BaseViewModel
 {
+    [ObservableProperty] public bool isPassword = true;
     [ObservableProperty]
     string email;
 
@@ -23,6 +24,12 @@ public partial class LoginViewModel : BaseViewModel
     public LoginViewModel(ILoginRepository loginRepository)
     {
         _loginRepository = loginRepository;
+    }
+
+    [ICommand]
+    public void TogglePasswordVisibility()
+    {
+        IsPassword = !IsPassword;
     }
 
     [RelayCommand]
