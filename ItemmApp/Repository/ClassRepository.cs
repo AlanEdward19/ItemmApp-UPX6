@@ -11,17 +11,16 @@ public class ClassRepository : IClassRepository
 {
     public async Task<IEnumerable<ClassResponse>> GetClassesAsync()
     {
-        return await Constants.ApiUrl.AppendPathSegment("/Class")
-            .WithOAuthBearerToken(Preferences.Get("token", string.Empty)).GetJsonAsync<IEnumerable<ClassResponse>>();
-    }
+        try
+        {
+            return await Constants.ApiUrl.AppendPathSegment("/Class")
+                .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).GetJsonAsync<IEnumerable<ClassResponse>>();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
 
-    public async Task<bool> AddAsync(ClassRequest request)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<bool> UpdateAsync(ClassRequest request)
-    {
-        throw new NotImplementedException();
+        return Enumerable.Empty<ClassResponse>();
     }
 }

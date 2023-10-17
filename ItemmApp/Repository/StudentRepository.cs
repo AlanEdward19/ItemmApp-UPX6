@@ -12,7 +12,7 @@ public class StudentRepository : IStudentRepository
     public async Task<IEnumerable<StudentResponse>> GetStudentsAsync()
     {
         return await Constants.ApiUrl.AppendPathSegment("/Student")
-            .WithOAuthBearerToken(Preferences.Get("token", string.Empty)).GetJsonAsync<IEnumerable<StudentResponse>>();
+            .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).GetJsonAsync<IEnumerable<StudentResponse>>();
     }
 
     public async Task<bool> AddAsync(StudentRequest request)
@@ -20,15 +20,18 @@ public class StudentRepository : IStudentRepository
         throw new NotImplementedException();
     }
 
-    public async Task<bool> UpdateAsync(StudentRequest request)
+    public async Task<bool> UpdateAsync(StudentRequest request, string cpf)
     {
-        throw new NotImplementedException();
+        var response = await Constants.ApiUrl.AppendPathSegment($"/Student").SetQueryParam("cpf", cpf)
+            .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).PutJsonAsync(request);
+
+        return response.ResponseMessage.IsSuccessStatusCode;
     }
 
     public async Task<bool> DeleteAsync(string cpf)
     {
         var response = await Constants.ApiUrl.AppendPathSegment($"/Student").SetQueryParam("cpf", cpf)
-            .WithOAuthBearerToken(Preferences.Get("token", string.Empty)).DeleteAsync();
+            .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).DeleteAsync();
 
         return response.ResponseMessage.IsSuccessStatusCode;
     }
