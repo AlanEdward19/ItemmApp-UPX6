@@ -9,9 +9,9 @@ namespace ItemmApp.Repository;
 
 public class AssessmentRepository : IAssessmentRepository
 {
-    public async Task<IEnumerable<AssessmentResponse>> GetAssessmentsAsync()
+    public async Task<IEnumerable<AssessmentResponse>> GetAssessmentsAsync(string id)
     {
-        return await Constants.ApiUrl.AppendPathSegment("/Assessment")
+        return await Constants.ApiUrl.AppendPathSegment("/Assessment").SetQueryParam("studentId", id)
             .WithOAuthBearerToken(await SessionHelper.GetTokenAsync()).GetJsonAsync<IEnumerable<AssessmentResponse>>();
     }
 
