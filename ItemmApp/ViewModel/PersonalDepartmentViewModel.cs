@@ -39,6 +39,7 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         foreach (var @class in classes)
             Classes.Add(@class);
     }
+
     internal async Task UpdateStudentsList()
     {
         var students = await _studentRepository.GetStudentsAsync();
@@ -48,6 +49,7 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         foreach (var student in students)
             Students.Add(student);
     }
+
     internal async Task InitAsync()
     {
         IsBusy = true;
@@ -82,10 +84,26 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
     }
 
     [ICommand]
-    async Task MoveToAttendanceScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAttendancePage));
+    async Task MoveToAttendanceScreen(StudentResponse student)
+    {
+        var navigationParams = new Dictionary<string, object>
+        {
+            {"Student", student }
+        };
+
+        await Shell.Current.GoToAsync(nameof(PersonalDepartmentAttendancePage), navigationParams);
+    }
 
     [ICommand]
-    async Task MoveToAssessmentScreen() => await Shell.Current.GoToAsync(nameof(PersonalDepartmentAssessmentPage));
+    async Task MoveToAssessmentScreen(StudentResponse student)
+    {
+        var navigationParams = new Dictionary<string, object>
+        {
+            {"Student", student }
+        };
+
+        await Shell.Current.GoToAsync(nameof(PersonalDepartmentAssessmentPage), navigationParams);
+    }
 
     [RelayCommand]
     public async Task GenerateCertificate()
