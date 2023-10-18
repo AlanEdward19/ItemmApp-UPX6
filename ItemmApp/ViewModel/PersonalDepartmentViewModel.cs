@@ -8,6 +8,7 @@ using CommunityToolkit.Maui.Storage;
 using CommunityToolkit.Mvvm.Input;
 using ItemmApp.Helpers;
 using ItemmApp.Interfaces;
+using System.Net;
 
 namespace ItemmApp.ViewModel;
 
@@ -126,6 +127,12 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         await Shell.Current.GoToAsync(nameof(PersonalDepartmentAssessmentPage), navigationParams);
     }
 
+    Stream GetTemplate(string url)
+    {
+        using WebClient webClient = new();
+        return webClient.OpenRead(new Uri(url));
+    }
+
     [RelayCommand]
     public async Task GenerateCertificate()
     {
@@ -141,9 +148,6 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
 
             if (response.IsQualified)
             {
-                string basePath = AppDomain.CurrentDomain.BaseDirectory;
-                string docxTemplatePath = Path.Combine(basePath, "../../../../../Files", "CertificadoIttem.docx");
-
                 var resultado = await FolderPicker.PickAsync(new CancellationToken());
                 string docxOutputPath = Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx");
 
@@ -160,7 +164,8 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
 
                 if (resultado != null)
                 {
-                    Converter.FillDOCX(docxTemplatePath, docxOutputPath, changes);
+                    string url = "https://cdn.discordapp.com/attachments/674738509457784852/1164302760930463765/CertificadoIttem.docx?ex=6542b871&is=65304371&hm=4cab46137774bca586fa0c80c32bed1b3cc0c91e8782d980ed53e32fce71b197&";
+                    Converter.FillDOCX(GetTemplate(url), docxOutputPath, changes);
 
                     // Informe ao usuário que o arquivo foi salvo
                     await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
