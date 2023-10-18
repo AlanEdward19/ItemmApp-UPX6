@@ -85,7 +85,7 @@
                             IsVisible="{Binding LoginCommand.IsRunning}"
                             VerticalOptions="Center"
                             WidthRequest="150"
-                            Color="{StaticResource Primary}" />
+                            Color="{StaticResource White}" />
 
                         <StackLayout
                             Grid.Row="2"

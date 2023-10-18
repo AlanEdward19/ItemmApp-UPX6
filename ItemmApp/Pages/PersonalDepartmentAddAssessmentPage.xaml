@@ -48,12 +48,16 @@
                             TextDecorations="Underline"
                             VerticalOptions="Start" />
 
-                        <Frame Padding="2" BorderColor="DarkGrey">
+                        <Border StrokeThickness="2">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="10" />
+                            </Border.StrokeShape>
+
                             <Slider
                                 Maximum="2"
                                 Minimum="0"
                                 Value="{Binding SkillTechnique}" />
-                        </Frame>
+                        </Border>
                     </StackLayout>
 
                     <StackLayout Spacing="3">

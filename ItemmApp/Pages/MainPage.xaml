@@ -18,18 +18,17 @@
             <VerticalStackLayout
                 Padding="5,0,5,0"
                 HorizontalOptions="Center"
-                Spacing="40"
                 VerticalOptions="Center">
 
                 <StackLayout>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="320" />
-                            <RowDefinition Height="320" />
+                            <RowDefinition Height="300" />
+                            <RowDefinition Height="300" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="190" />
-                            <ColumnDefinition Width="190" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
                         <Frame
@@ -48,14 +47,14 @@
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="19"
+                                    FontSize="17"
                                     HorizontalOptions="Center"
                                     Text="Departamento"
                                     TextColor="White"
                                     VerticalOptions="Center" />
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="19"
+                                    FontSize="17"
                                     HorizontalOptions="Center"
                                     Text="Pessoal"
                                     TextColor="White"
@@ -76,14 +75,14 @@
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="20"
+                                    FontSize="18"
                                     HorizontalOptions="Center"
                                     Text="Setor"
                                     TextColor="White"
                                     VerticalOptions="Center" />
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="20"
+                                    FontSize="18"
                                     HorizontalOptions="Center"
                                     Text="Social"
                                     TextColor="White"
@@ -103,14 +102,14 @@
                             <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="20"
+                                    FontSize="18"
                                     HorizontalOptions="Center"
                                     Text="Setor"
                                     TextColor="White"
                                     VerticalOptions="Center" />
                                 <Label
                                     FontAttributes="Bold"
-                                    FontSize="20"
+                                    FontSize="18"
                                     HorizontalOptions="Center"
                                     Text="Pedagógico"
                                     TextColor="White"
@@ -129,7 +128,7 @@
                             CornerRadius="10">
                             <Label
                                 FontAttributes="Bold"
-                                FontSize="19"
+                                FontSize="17"
                                 HorizontalOptions="Center"
                                 Text="Configurações"
                                 TextColor="White"

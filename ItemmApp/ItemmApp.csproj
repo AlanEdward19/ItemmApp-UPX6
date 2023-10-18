@@ -51,10 +51,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#022664" />
 
     <!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Images\itemm_logo.svg" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Images\itemm_logo_dark.svg" BaseSize="128,128" Color="#022664"/>
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -67,7 +67,14 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
+  <ItemGroup>
+    <None Update="Files\CertificadoIttem.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
+  <ItemGroup>
 	  <MauiImage Remove="Resources\Images\itemm_logo.svg" />
 	</ItemGroup>
 
