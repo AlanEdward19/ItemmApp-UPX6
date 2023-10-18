@@ -4,7 +4,7 @@ namespace ItemmApp.Helpers
 {
     public static class Converter
     {
-        public static void FillDOCX(string docxTemplatePath, string docxOutputPath, Dictionary<string, string> changes)
+        public static void FillDOCX(Stream docxTemplatePath, string docxOutputPath, Dictionary<string, string> changes)
         {
             using (var doc = DocX.Load(docxTemplatePath))
             {
