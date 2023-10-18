@@ -17,24 +17,6 @@
             VerticalOptions="Center">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
-                <Frame
-                    BackgroundColor="White"
-                    CornerRadius="40"
-                    HasShadow="True"
-                    HeightRequest="45"
-                    WidthRequest="45">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Path=MoveBackCommand}" />
-                    </Frame.GestureRecognizers>
-
-                    <Image
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        HorizontalOptions="Center"
-                        Source="arrow_icon.png"
-                        VerticalOptions="Center"
-                        WidthRequest="20" />
-                </Frame>
 
                 <HorizontalStackLayout Spacing="10">
                     <Image

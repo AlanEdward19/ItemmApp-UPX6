@@ -13,25 +13,29 @@ namespace ItemmApp.ViewModel;
 
 public partial class PersonalDepartmentViewModel : BaseViewModel
 {
-    public ObservableCollection<StudentResponse> Students { get; set; }
+    private readonly IStudentRepository _studentRepository;
+    private readonly IClassRepository _classRepository;
+    private readonly ICertificateIssuanceRepository _certificateIssuanceRepository;
+
+    public PersonalDepartmentViewModel(IStudentRepository studentRepository, IClassRepository classRepository, ICertificateIssuanceRepository certificateIssuanceRepository)
+    {
+        _studentRepository = studentRepository;
+        _classRepository = classRepository;
+        _certificateIssuanceRepository = certificateIssuanceRepository;
+    }
+
+    public List<StudentResponse> Students { get; set; }
         = new();
 
     public ObservableCollection<StudentResponse> FilteredStudents { get; set; }
         = new();
 
-    [ObservableProperty] 
+    public ObservableCollection<ClassResponse> Classes { get; set; }
+        = new();
+
+    [ObservableProperty]
     public StudentResponse? selectedStudent;
 
-    private string _name;
-    public string Name
-    {
-        get => _name;
-        set
-        {
-            SetProperty(ref _name, value);
-            FilterStudents();
-        }
-    }
 
     private ClassResponse _selectedClass;
     public ClassResponse SelectedClass
@@ -41,21 +45,9 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         {
             if (SetProperty(ref _selectedClass, value))
             {
-                FilterStudents();
+                //FilterStudents();
             }
         }
-    }
-
-    public ObservableCollection<ClassResponse> Classes { get; set; }
-        = new();
-
-    private readonly IStudentRepository _studentRepository;
-    private readonly IClassRepository _classRepository;
-
-    public PersonalDepartmentViewModel(IStudentRepository studentRepository, IClassRepository classRepository)
-    {
-        _studentRepository = studentRepository;
-        _classRepository = classRepository;
     }
 
     internal async Task UpdateClassesList()
@@ -84,7 +76,7 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
         await UpdateStudentsList();
         await UpdateClassesList();
 
-        FilterStudents();
+        FilterStudents("");
 
         IsBusy = false;
     }
@@ -137,32 +129,47 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
     [RelayCommand]
     public async Task GenerateCertificate()
     {
-        //await Shell.Current.DisplayAlert("Atenção", "Presença do aluno inferior a 75%.", "OK");
         try
         {
-            string basePath = AppDomain.CurrentDomain.BaseDirectory;
-            string docxTemplatePath = Path.Combine(basePath, "../../../../../Files", "CertificadoIttem.docx");
-
-            var resultado = await FolderPicker.PickAsync(new CancellationToken());
-            string docxOutputPath = Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx");
-
-            // Dicionário de substituição
-            Dictionary<string, string> changes = new Dictionary<string, string>
+            if (selectedStudent == null)
             {
+                await Shell.Current.DisplayAlert("Atenção", "Nenhum aluno foi selecionado, impossivel prosseguir com deleção", "OK");
+                return;
+            }
 
-                {"rg do aluno", Converter.FormatCpf(selectedStudent.Cpf) },
-                {"nome da empresa", selectedStudent.CompanyName},
-                {"função do aluno", selectedStudent.FunctionName},
-                {"data1", selectedStudent.AdmissionDate.ToString("dd/MM/yyyy")},
-                {"data2", selectedStudent.EndDate.ToString("dd/MM/yyyy")}
-            };
+            var response = await _certificateIssuanceRepository.GetCertificateIssuanceAsync(selectedStudent.Cpf);
 
-            if (resultado != null)
+            if (response.IsQualified)
             {
-                Converter.FillDOCX(docxTemplatePath, docxOutputPath, changes);
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string docxTemplatePath = Path.Combine(basePath, "../../../../../Files", "CertificadoIttem.docx");
 
-                // Informe ao usuário que o arquivo foi salvo
-                await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
+                var resultado = await FolderPicker.PickAsync(new CancellationToken());
+                string docxOutputPath = Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx");
+
+                // Dicionário de substituição
+                Dictionary<string, string> changes = new Dictionary<string, string>
+                {
+
+                    {"rg do aluno", Converter.FormatCpf(response.StudentCpf) },
+                    {"nome da empresa", response.CompanyName},
+                    {"função do aluno", response.StudentFunction},
+                    {"data1", response.InitialDate.ToString("dd/MM/yyyy")},
+                    {"data2", response.FinalDate.ToString("dd/MM/yyyy")}
+                };
+
+                if (resultado != null)
+                {
+                    Converter.FillDOCX(docxTemplatePath, docxOutputPath, changes);
+
+                    // Informe ao usuário que o arquivo foi salvo
+                    await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
+                }
+            }
+
+            else
+            {
+                await Shell.Current.DisplayAlert("Atenção", "Presença do aluno inferior a 75%.", "OK");
             }
         }
         catch (Exception ex)
@@ -203,28 +210,37 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
                 await Shell.Current.DisplayAlert("Atenção", "Houve um erro ao tentar deletar aluno, tente novamente!", "OK");
             }
         }
-        
+
     }
 
-    private void FilterStudents()
+    [ICommand]
+    private void FilterStudents(string name)
     {
-        // Lógica para filtrar alunos com base nos critérios (Nome e Turma)
-        var filteredStudents = Students;
-
-        if (!string.IsNullOrEmpty(Name))
+        try
         {
-            filteredStudents = new ObservableCollection<StudentResponse>(filteredStudents.Where(a => a.Name.Contains(Name, StringComparison.InvariantCultureIgnoreCase)));
-        }
+            // Lógica para filtrar alunos com base nos critérios (Nome e Turma)
+            List<StudentResponse> filteredStudents = Students;
 
-        if (SelectedClass != null)
+            if (!string.IsNullOrEmpty(name))
+            {
+                filteredStudents = filteredStudents.Where(a => a.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).ToList();
+            }
+
+            if (SelectedClass != null)
+            {
+                filteredStudents =filteredStudents.Where(a => a.ClassName == SelectedClass.Name).ToList();
+            }
+
+            FilteredStudents.Clear();
+
+            foreach (var value in filteredStudents)
+                FilteredStudents.Add(value);
+        }
+        catch (Exception e)
         {
-            filteredStudents = new ObservableCollection<StudentResponse>(filteredStudents.Where(a => a.ClassName == SelectedClass.Name));
+            Console.WriteLine(e);
+            throw;
         }
-
-        FilteredStudents.Clear();
-
-        foreach (var value in filteredStudents)
-            FilteredStudents.Add(value);
     }
 
 }

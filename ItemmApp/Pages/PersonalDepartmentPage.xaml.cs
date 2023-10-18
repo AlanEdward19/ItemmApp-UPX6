@@ -17,5 +17,10 @@ public partial class PersonalDepartmentPage : ContentPage
         base.OnAppearing();
         await _vm.InitAsync();
     }
+
+    private void InputView_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
 }
 

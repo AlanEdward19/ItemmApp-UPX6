@@ -58,6 +58,7 @@ public static class MauiProgram
         builder.Services.AddScoped<IFunctionRepository, FunctionRepository>();
         builder.Services.AddScoped<IAssessmentRepository, AssessmentRepository>();
         builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+        builder.Services.AddScoped<ICertificateIssuanceRepository, CertificateIssuanceRepository>();
 
         #endregion
 

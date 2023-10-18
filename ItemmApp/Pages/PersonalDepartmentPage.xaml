@@ -17,24 +17,6 @@
             VerticalOptions="Center">
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
-                <Frame
-                    BackgroundColor="White"
-                    CornerRadius="40"
-                    HasShadow="True"
-                    HeightRequest="45"
-                    WidthRequest="45">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Path=MoveBackToMainCommand}" />
-                    </Frame.GestureRecognizers>
-
-                    <Image
-                        Aspect="AspectFit"
-                        HeightRequest="20"
-                        HorizontalOptions="Center"
-                        Source="arrow_icon.png"
-                        VerticalOptions="Center"
-                        WidthRequest="20" />
-                </Frame>
 
                 <HorizontalStackLayout Spacing="10">
                     <Image
@@ -75,6 +57,7 @@
                             BackgroundColor="White"
                             ItemDisplayBinding="{Binding Name}"
                             ItemsSource="{Binding Classes}"
+                            SelectedItem="{Binding SelectedClass}"
                             TextColor="#545F71" />
                     </Border>
 
@@ -98,13 +81,13 @@
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry
+                            <SearchBar
+                                x:Name="searchBar"
                                 BackgroundColor="White"
-                                ClearButtonVisibility="WhileEditing"
                                 FontFamily="Inter"
                                 FontSize="15"
-                                IsPassword="False"
-                                Text="{Binding Name}"
+                                SearchCommand="{Binding FilterStudentsCommand}"
+                                SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
                                 TextColor="#545F71" />
                         </Border>
 

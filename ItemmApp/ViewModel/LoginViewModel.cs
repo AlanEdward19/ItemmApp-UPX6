@@ -52,6 +52,7 @@ public partial class LoginViewModel : BaseViewModel
                 sb.Append($"{message}\n");
 
             await Shell.Current.DisplayAlert("Atenção", sb.ToString(), "OK");
+            IsEnabled = true;
             return;
         }
 
@@ -62,6 +63,10 @@ public partial class LoginViewModel : BaseViewModel
         {
             toast = Toast.Make("Falha ao realizar login, tente novamente!", ToastDuration.Long);
             await toast.Show();
+
+            Email = "";
+            Password = "";
+            IsEnabled = true;
             return;
         }
 
