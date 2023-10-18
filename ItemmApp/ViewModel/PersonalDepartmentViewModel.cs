@@ -16,8 +16,35 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
     public ObservableCollection<StudentResponse> Students { get; set; }
         = new();
 
+    public ObservableCollection<StudentResponse> FilteredStudents { get; set; }
+        = new();
+
     [ObservableProperty] 
     public StudentResponse? selectedStudent;
+
+    private string _name;
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            SetProperty(ref _name, value);
+            FilterStudents();
+        }
+    }
+
+    private ClassResponse _selectedClass;
+    public ClassResponse SelectedClass
+    {
+        get => _selectedClass;
+        set
+        {
+            if (SetProperty(ref _selectedClass, value))
+            {
+                FilterStudents();
+            }
+        }
+    }
 
     public ObservableCollection<ClassResponse> Classes { get; set; }
         = new();
@@ -56,6 +83,8 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
 
         await UpdateStudentsList();
         await UpdateClassesList();
+
+        FilterStudents();
 
         IsBusy = false;
     }
@@ -175,6 +204,27 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
             }
         }
         
+    }
+
+    private void FilterStudents()
+    {
+        // Lógica para filtrar alunos com base nos critérios (Nome e Turma)
+        var filteredStudents = Students;
+
+        if (!string.IsNullOrEmpty(Name))
+        {
+            filteredStudents = new ObservableCollection<StudentResponse>(filteredStudents.Where(a => a.Name.Contains(Name, StringComparison.InvariantCultureIgnoreCase)));
+        }
+
+        if (SelectedClass != null)
+        {
+            filteredStudents = new ObservableCollection<StudentResponse>(filteredStudents.Where(a => a.ClassName == SelectedClass.Name));
+        }
+
+        FilteredStudents.Clear();
+
+        foreach (var value in filteredStudents)
+            FilteredStudents.Add(value);
     }
 
 }

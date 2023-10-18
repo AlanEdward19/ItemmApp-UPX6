@@ -104,6 +104,7 @@
                                 FontFamily="Inter"
                                 FontSize="15"
                                 IsPassword="False"
+                                Text="{Binding Name}"
                                 TextColor="#545F71" />
                         </Border>
 
@@ -161,7 +162,7 @@
                 <CollectionView
                     Margin="20"
                     EmptyView="Nenhum item encontrado"
-                    ItemsSource="{Binding Students}"
+                    ItemsSource="{Binding FilteredStudents}"
                     SelectedItem="{Binding SelectedStudent}"
                     SelectionMode="Single">
                     <CollectionView.ItemTemplate>
