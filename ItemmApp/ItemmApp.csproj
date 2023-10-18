@@ -15,7 +15,7 @@
 		<ApplicationTitle>Itemm App</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.MutzarelaTech.itemmapp</ApplicationId>
+		<ApplicationId>com.companyname.itemmapp</ApplicationId>
 		<ApplicationIdGuid>42313e9f-234f-4353-a277-7690fc613f6b</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -33,14 +33,16 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-android33.0|AnyCPU'">
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	  <AndroidUseAapt2>True</AndroidUseAapt2>
-	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
 	  <Debugger>Xamarin</Debugger>
+	  <AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android33.0|AnyCPU'">
 	  <AndroidUseAapt2>True</AndroidUseAapt2>
-	  <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+	  <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
 	  <Debugger>Xamarin</Debugger>
+	  <AndroidCreatePackagePerAbi>True</AndroidCreatePackagePerAbi>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
@@ -49,7 +51,7 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-    <MauiIcon Include="Resources\AppIcon\itemm_logo_dark.svg" Color="#022664" ForegroundScale="0.65" />
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
     <!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Images\itemm_logo.svg" BaseSize="128,128" />
