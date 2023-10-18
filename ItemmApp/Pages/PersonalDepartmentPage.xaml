@@ -172,15 +172,17 @@
                                         <SwipeItem
                                             BackgroundColor="Red"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:PersonalDepartmentViewModel}}, Path=MoveToAssessmentScreenCommand}"
+                                            CommandParameter="{Binding .}"
                                             IconImageSource="favorite.png"
                                             Text="Avaliação" />
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <SwipeView.LeftItems>
-                                    <SwipeItems>
+                                    <SwipeItems Mode="Execute">
                                         <SwipeItem
                                             BackgroundColor="LightGreen"
                                             Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:PersonalDepartmentViewModel}}, Path=MoveToAttendanceScreenCommand}"
+                                            CommandParameter="{Binding .}"
                                             IconImageSource="favorite.png"
                                             Text="Presença" />
                                     </SwipeItems>
@@ -200,7 +202,7 @@
                                             Grid.Column="1"
                                             FontAttributes="Bold"
                                             HorizontalOptions="End"
-                                            Text="{Binding Cpf, StringFormat='{0:###\\.###\\.###-##}'}" />
+                                            Text="{Binding Cpf}" />
 
                                         <Label
                                             Grid.Row="1"

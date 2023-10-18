@@ -1,4 +1,5 @@
-﻿using ItemmApp.ViewModel;
+﻿using ItemmApp.Models.Response;
+using ItemmApp.ViewModel;
 
 namespace ItemmApp;
 
@@ -16,6 +17,5 @@ public partial class PersonalDepartmentPage : ContentPage
         base.OnAppearing();
         await _vm.InitAsync();
     }
-
 }
 

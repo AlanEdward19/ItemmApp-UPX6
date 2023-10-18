@@ -3,8 +3,11 @@
     x:Class="ItemmApp.PersonalDepartmentAssessmentPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:response="using:ItemmApp.Models.Response"
     xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
-    x:DataType="viewModel:PersonalDepartmentAssessmentViewModel">
+    x:DataType="viewModel:PersonalDepartmentAssessmentViewModel"
+    BackgroundColor="{AppThemeBinding Light={StaticResource 'Primary White'},
+                                      Dark={StaticResource 'Primary Dark'}}">
 
     <ScrollView>
         <VerticalStackLayout
@@ -68,6 +71,7 @@
 
                     <DatePicker
                         BackgroundColor="White"
+                        Date="{Binding AssessmentDate}"
                         Format="dd/MM/yyyy"
                         HorizontalOptions="Fill"
                         TextColor="#545F71" />
@@ -96,7 +100,8 @@
                         ClearButtonVisibility="WhileEditing"
                         FontFamily="Inter"
                         FontSize="15"
-                        IsPassword="True"
+                        IsEnabled="False"
+                        Text="{Binding Student.Name}"
                         TextColor="#545F71" />
                 </Border>
 
@@ -141,6 +146,7 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding Level}"
                                     TextColor="#545F71" />
                             </Border>
 
@@ -170,7 +176,9 @@
                                     ClearButtonVisibility="WhileEditing"
                                     FontFamily="Inter"
                                     FontSize="15"
+                                    IsEnabled="False"
                                     IsPassword="False"
+                                    Text="{Binding Student.ClassName}"
                                     TextColor="#545F71" />
                             </Border>
                         </StackLayout>
@@ -200,6 +208,7 @@
                                     FontFamily="Inter"
                                     FontSize="15"
                                     IsPassword="False"
+                                    Text="{Binding Module}"
                                     TextColor="#545F71" />
                             </Border>
 
@@ -229,7 +238,9 @@
                                     ClearButtonVisibility="WhileEditing"
                                     FontFamily="Inter"
                                     FontSize="15"
+                                    IsEnabled="False"
                                     IsPassword="False"
+                                    Text="{Binding Student.CompanyName}"
                                     TextColor="#545F71" />
                             </Border>
                         </StackLayout>
@@ -256,6 +267,7 @@
                                                      Light=#95CA60}"
                         BorderColor="White"
                         BorderWidth="1"
+                        Command="{Binding DeleteAssessmentCommand}"
                         FontAttributes="Bold"
                         FontFamily="Inter"
                         FontSize="12"
@@ -264,9 +276,45 @@
                 </HorizontalStackLayout>
 
                 <StackLayout Padding="0,20,0,10">
-                    <Frame BackgroundColor="White" HeightRequest="300">
-                        <ListView />
-                    </Frame>
+                    <CollectionView
+                        Margin="20"
+                        EmptyView="Nenhum item encontrado"
+                        ItemsSource="{Binding Assessments}"
+                        SelectedItem="{Binding SelectedAssessment}"
+                        SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid
+                                    x:DataType="response:AssessmentResponse"
+                                    ColumnDefinitions="*,*"
+                                    RowDefinitions="auto,auto,auto, 10"
+                                    RowSpacing="5">
+
+                                    <Label FontAttributes="Bold" Text="{Binding Id}" />
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="End"
+                                        Text="{Binding AssessmentDate}" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        FontSize="Body"
+                                        Text="{Binding StudentName}" />
+
+                                    <BoxView
+                                        Grid.Row="3"
+                                        Grid.ColumnSpan="2"
+                                        HeightRequest="1" />
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
                 </StackLayout>
 
             </StackLayout>

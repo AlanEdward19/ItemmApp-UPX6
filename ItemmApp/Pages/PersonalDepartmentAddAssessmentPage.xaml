@@ -67,13 +67,10 @@
                             VerticalOptions="Start" />
 
                         <Frame Padding="2" BorderColor="DarkGrey">
-                            <Entry
-                                BackgroundColor="White"
-                                ClearButtonVisibility="WhileEditing"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                IsPassword="False"
-                                TextColor="#545F71" />
+                            <Slider
+                                Maximum="2"
+                                Minimum="0"
+                                Value="{Binding SkillTechnique}" />
                         </Frame>
                     </StackLayout>
 
@@ -93,13 +90,10 @@
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry
-                                BackgroundColor="White"
-                                ClearButtonVisibility="WhileEditing"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                IsPassword="False"
-                                TextColor="#545F71" />
+                            <Slider
+                                Maximum="2"
+                                Minimum="0"
+                                Value="{Binding Participation}" />
                         </Border>
 
                     </StackLayout>
@@ -120,13 +114,10 @@
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry
-                                BackgroundColor="White"
-                                ClearButtonVisibility="WhileEditing"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                IsPassword="False"
-                                TextColor="#545F71" />
+                            <Slider
+                                Maximum="2"
+                                Minimum="0"
+                                Value="{Binding InterPersonalRelationship}" />
                         </Border>
 
                     </StackLayout>
@@ -147,13 +138,10 @@
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
 
-                            <Entry
-                                BackgroundColor="White"
-                                ClearButtonVisibility="WhileEditing"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                IsPassword="False"
-                                TextColor="#545F71" />
+                            <Slider
+                                Maximum="2"
+                                Minimum="0"
+                                Value="{Binding GoalFulfillment}" />
                         </Border>
                     </StackLayout>
 
@@ -168,7 +156,7 @@
                                                  Light={StaticResource 'Primary White'}}"
                     BorderColor="White"
                     BorderWidth="1"
-                    Command="{Binding Path=MoveBackCommand}"
+                    Command="{Binding Path=AddAssessmentCommand}"
                     FontAttributes="Bold"
                     FontFamily="Inter"
                     FontSize="12"
