@@ -11,7 +11,8 @@ public class InsertAssessmentRequest
     public int GoalFulfillment { get; private set; }
     public DateTime AssessmentDate { get; private set; }
 
-    public InsertAssessmentRequest(string studentCpf, string level, string module, int skillTechnique, int participation, int interPersonalRelationship, int goalFulfillment, DateTime assessmentDate)
+    public InsertAssessmentRequest(string studentCpf, string level, string module, int skillTechnique, int participation, 
+        int interPersonalRelationship, int goalFulfillment, DateTime assessmentDate)
     {
         StudentCpf = studentCpf;
         Level = level;
