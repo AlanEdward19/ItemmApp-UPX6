@@ -5,87 +5,96 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
     x:DataType="viewModel:PersonalDepartmentAddAssessmentViewModel"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'}, Light={StaticResource 'Primary White'}}">
+    BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                      Light={StaticResource 'Primary White'}}">
 
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
+        <StackLayout Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
             <Image
-                Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}"
                 HeightRequest="50"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}" />
 
             <Image
-                Source="itemm_text.png"
                 HeightRequest="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="itemm_text.png" />
+        </StackLayout>
 
-            <Label
-                Text="Habilidade Tecnica"
-                TextColor="White"
-                FontSize="15"
-                HorizontalTextAlignment="Start"
-                TextDecorations="Underline" />
+        <ScrollView Grid.Row="1">
+            <StackLayout Padding="20" Spacing="20">
+                <Label
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Text="Habilidade Técnica"
+                    TextColor="White"
+                    TextDecorations="Underline" />
 
-            <Slider
-                Maximum="2"
-                Minimum="0"
-                Value="{Binding SkillTechnique}" />
+                <Slider
+                    Maximum="2"
+                    Minimum="0"
+                    Value="{Binding SkillTechnique}" />
 
-            <Label
-                Text="Participação"
-                TextColor="White"
-                FontSize="15"
-                HorizontalTextAlignment="Start"
-                TextDecorations="Underline" />
+                <Label
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Text="Participação"
+                    TextColor="White"
+                    TextDecorations="Underline" />
 
-            <Slider
-                Maximum="2"
-                Minimum="0"
-                Value="{Binding Participation}" />
+                <Slider
+                    Maximum="2"
+                    Minimum="0"
+                    Value="{Binding Participation}" />
 
-            <Label
-                Text="Relacionamento Interpessoal"
-                TextColor="White"
-                FontSize="15"
-                HorizontalTextAlignment="Start"
-                TextDecorations="Underline" />
+                <Label
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Text="Relacionamento Interpessoal"
+                    TextColor="White"
+                    TextDecorations="Underline" />
 
-            <Slider
-                Maximum="2"
-                Minimum="0"
-                Value="{Binding InterPersonalRelationship}" />
+                <Slider
+                    Maximum="2"
+                    Minimum="0"
+                    Value="{Binding InterPersonalRelationship}" />
 
-            <Label
-                Text="Cumprimento de Metas"
-                TextColor="White"
-                FontSize="15"
-                HorizontalTextAlignment="Start"
-                TextDecorations="Underline" />
+                <Label
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalTextAlignment="Start"
+                    Text="Cumprimento de Metas"
+                    TextColor="White"
+                    TextDecorations="Underline" />
 
-            <Slider
-                Maximum="2"
-                Minimum="0"
-                Value="{Binding GoalFulfillment}" />
+                <Slider
+                    Maximum="2"
+                    Minimum="0"
+                    Value="{Binding GoalFulfillment}" />
+            </StackLayout>
+        </ScrollView>
 
+        <StackLayout Grid.Row="2" HorizontalOptions="Center">
             <Button
-                Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'}, Light={StaticResource 'Primary White'}}"
+                Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                             Light={StaticResource 'Primary White'}}"
                 BorderColor="White"
                 BorderWidth="1"
                 Command="{Binding AddAssessmentCommand}"
                 FontAttributes="Bold"
+                FontFamily="Inter"
                 FontSize="12"
                 Text="Salvar"
-                TextColor="White"
-                VerticalOptions="CenterAndExpand" />
-        </Grid>
-    </ScrollView>
+                TextColor="White" />
+        </StackLayout>
+    </Grid>
 </ContentPage>
