@@ -162,14 +162,11 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
                     {"data2", response.FinalDate.ToString("dd/MM/yyyy")}
                 };
 
-                if (resultado != null)
-                {
-                    string url = "https://cdn.discordapp.com/attachments/674738509457784852/1164302760930463765/CertificadoIttem.docx?ex=6542b871&is=65304371&hm=4cab46137774bca586fa0c80c32bed1b3cc0c91e8782d980ed53e32fce71b197&";
-                    Converter.FillDOCX(GetTemplate(url), docxOutputPath, changes);
+                string url = "https://cdn.discordapp.com/attachments/674738509457784852/1164302760930463765/CertificadoIttem.docx?ex=6542b871&is=65304371&hm=4cab46137774bca586fa0c80c32bed1b3cc0c91e8782d980ed53e32fce71b197&";
+                Converter.FillDOCX(GetTemplate(url), docxOutputPath, changes);
 
-                    // Informe ao usuário que o arquivo foi salvo
-                    await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
-                }
+                // Informe ao usuário que o arquivo foi salvo
+                await Shell.Current.DisplayAlert("Sucesso", "Arquivo salvo com sucesso!", "OK");
             }
 
             else
