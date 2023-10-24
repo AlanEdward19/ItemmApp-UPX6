@@ -24,6 +24,11 @@ namespace ItemmApp.Helpers
                     }
                 }
 
+                if (!Directory.Exists(Path.GetDirectoryName(docxOutputPath)))
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(docxOutputPath));
+                }
+
                 // Salva o documento modificado
                 doc.SaveAs(docxOutputPath);
             }
