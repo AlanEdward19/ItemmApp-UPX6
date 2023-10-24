@@ -148,8 +148,8 @@ public partial class PersonalDepartmentViewModel : BaseViewModel
 
             if (response.IsQualified)
             {
-                var resultado = await FolderPicker.PickAsync(new CancellationToken());
-                string docxOutputPath = Path.Combine(resultado.Folder.Path, $"{selectedStudent.Name}-Certificate.docx");
+                string downloadsFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string docxOutputPath = Path.Combine(downloadsFolder, $"{selectedStudent.Name}-Certificate.docx");
 
                 // Dicionário de substituição
                 Dictionary<string, string> changes = new Dictionary<string, string>
