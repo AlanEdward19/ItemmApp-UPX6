@@ -9,214 +9,220 @@
     BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
                                       Light={StaticResource 'Primary White'}}">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="20,0,20,0"
-            HorizontalOptions="Center"
-            Spacing="30"
-            VerticalOptions="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout
+                Padding="20,0,20,0"
+                HorizontalOptions="Center"
+                Spacing="30"
+                VerticalOptions="Center">
 
-                <HorizontalStackLayout Spacing="10">
-                    <Image
-                        HeightRequest="50"
-                        HorizontalOptions="Center"
-                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                        Source="{AppThemeBinding Dark=itemm_logo_dark.png,
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="150">
+
+                    <HorizontalStackLayout Spacing="10">
+                        <Image
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                            Source="{AppThemeBinding Dark=itemm_logo_dark.png,
                                                  Light=itemm_logo_light.png}" />
 
-                    <Image
-                        HeightRequest="20"
-                        HorizontalOptions="Center"
-                        SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                        Source="itemm_text.png" />
+                        <Image
+                            HeightRequest="20"
+                            HorizontalOptions="Center"
+                            SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                            Source="itemm_text.png" />
+                    </HorizontalStackLayout>
+
                 </HorizontalStackLayout>
 
-            </HorizontalStackLayout>
-
-            <StackLayout Spacing="3">
-                <Label
-                    Padding="5,0,0,0"
-                    FontFamily="Inter"
-                    FontSize="15"
-                    HorizontalTextAlignment="Start"
-                    Text="Data Presença"
-                    TextColor="White"
-                    TextDecorations="Underline"
-                    VerticalOptions="Start" />
-
-                <Border StrokeThickness="2">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="10" />
-                    </Border.StrokeShape>
-
-                    <DatePicker
-                        BackgroundColor="White"
-                        Date="{Binding AttendanceDate}"
-                        Format="dd/MM/yyyy"
-                        HorizontalOptions="Fill"
-                        TextColor="#545F71" />
-                </Border>
-
-            </StackLayout>
-
-            <StackLayout Spacing="3">
-                <Label
-                    Padding="5,0,0,0"
-                    FontFamily="Inter"
-                    FontSize="15"
-                    HorizontalTextAlignment="Start"
-                    Text="Aluno"
-                    TextColor="White"
-                    TextDecorations="Underline"
-                    VerticalOptions="Start" />
-
-                <Border StrokeThickness="2">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="10" />
-                    </Border.StrokeShape>
-
-                    <Entry
-                        BackgroundColor="White"
-                        ClearButtonVisibility="WhileEditing"
+                <StackLayout Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
                         FontFamily="Inter"
                         FontSize="15"
-                        IsEnabled="False"
-                        Text="{Binding Student.Name}"
-                        TextColor="#545F71" />
-                </Border>
+                        HorizontalTextAlignment="Start"
+                        Text="Data Presença"
+                        TextColor="White"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
 
-            </StackLayout>
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
 
-            <StackLayout Spacing="3">
-                <Label
-                    Padding="5,0,0,0"
-                    FontFamily="Inter"
-                    FontSize="15"
-                    HorizontalTextAlignment="Start"
-                    Text="Nivel"
-                    TextColor="White"
-                    TextDecorations="Underline"
-                    VerticalOptions="Start" />
+                        <DatePicker
+                            BackgroundColor="White"
+                            Date="{Binding AttendanceDate}"
+                            Format="dd/MM/yyyy"
+                            HorizontalOptions="Fill"
+                            TextColor="#545F71" />
+                    </Border>
 
-                <Border StrokeThickness="2">
-                    <Border.StrokeShape>
-                        <RoundRectangle CornerRadius="10" />
-                    </Border.StrokeShape>
+                </StackLayout>
 
-                    <Entry
-                        BackgroundColor="White"
-                        ClearButtonVisibility="WhileEditing"
+                <StackLayout Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
                         FontFamily="Inter"
                         FontSize="15"
-                        Text="{Binding Level}"
-                        TextColor="#545F71" />
-                </Border>
-            </StackLayout>
+                        HorizontalTextAlignment="Start"
+                        Text="Aluno"
+                        TextColor="White"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
 
-            <StackLayout>
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
 
-                <StackLayout Padding="0,0,0,100">
+                        <Entry
+                            BackgroundColor="White"
+                            ClearButtonVisibility="WhileEditing"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            IsEnabled="False"
+                            Text="{Binding Student.Name}"
+                            TextColor="#545F71" />
+                    </Border>
 
-                    <Grid ColumnSpacing="20">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                </StackLayout>
 
-                        <StackLayout
-                            Grid.Row="0"
-                            Grid.Column="0"
-                            Spacing="3">
-                            <Label
-                                Padding="5,0,0,0"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                HorizontalTextAlignment="Start"
-                                Text="Modulo"
-                                TextColor="White"
-                                TextDecorations="Underline"
-                                VerticalOptions="Start" />
+                <StackLayout Spacing="3">
+                    <Label
+                        Padding="5,0,0,0"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        HorizontalTextAlignment="Start"
+                        Text="Nivel"
+                        TextColor="White"
+                        TextDecorations="Underline"
+                        VerticalOptions="Start" />
 
-                            <Border StrokeThickness="2">
-                                <Border.StrokeShape>
-                                    <RoundRectangle CornerRadius="10" />
-                                </Border.StrokeShape>
+                    <Border StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="10" />
+                        </Border.StrokeShape>
 
-                                <Entry
-                                    BackgroundColor="White"
-                                    ClearButtonVisibility="WhileEditing"
+                        <Entry
+                            BackgroundColor="White"
+                            ClearButtonVisibility="WhileEditing"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            Text="{Binding Level}"
+                            TextColor="#545F71" />
+                    </Border>
+                </StackLayout>
+
+                <StackLayout>
+
+                    <StackLayout Padding="0,0,0,100">
+
+                        <Grid ColumnSpacing="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Spacing="3">
+                                <Label
+                                    Padding="5,0,0,0"
                                     FontFamily="Inter"
                                     FontSize="15"
-                                    IsPassword="False"
-                                    Text="{Binding Module}"
-                                    TextColor="#545F71" />
-                            </Border>
-                        </StackLayout>
+                                    HorizontalTextAlignment="Start"
+                                    Text="Modulo"
+                                    TextColor="White"
+                                    TextDecorations="Underline"
+                                    VerticalOptions="Start" />
 
-                        <StackLayout
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            RadioButtonGroup.SelectedValue="{Binding Tipo}">
-                            <Label
-                                Padding="5,0,0,0"
-                                FontFamily="Inter"
-                                FontSize="15"
-                                HorizontalTextAlignment="Start"
-                                Text="Presença"
-                                TextColor="White"
-                                TextDecorations="Underline"
-                                VerticalOptions="Start" />
+                                <Border StrokeThickness="2">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
 
-                            <RadioButton
-                                Content="Presente"
-                                IsChecked="True"
-                                Scale="0.85"
-                                Value="{x:Static local:EAttendance.Presente}" />
+                                    <Entry
+                                        BackgroundColor="White"
+                                        ClearButtonVisibility="WhileEditing"
+                                        FontFamily="Inter"
+                                        FontSize="15"
+                                        IsPassword="False"
+                                        Text="{Binding Module}"
+                                        TextColor="#545F71" />
+                                </Border>
+                            </StackLayout>
 
-                            <RadioButton
-                                Content="Ausente"
-                                Scale="0.85"
-                                Value="{x:Static local:EAttendance.Ausente}" />
+                            <StackLayout
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                RadioButtonGroup.SelectedValue="{Binding Tipo}">
+                                <Label
+                                    Padding="5,0,0,0"
+                                    FontFamily="Inter"
+                                    FontSize="15"
+                                    HorizontalTextAlignment="Start"
+                                    Text="Presença"
+                                    TextColor="White"
+                                    TextDecorations="Underline"
+                                    VerticalOptions="Start" />
 
-                            <RadioButton
-                                Content="Declaração"
-                                Scale="0.85"
-                                Value="{x:Static local:EAttendance.Declaração}" />
+                                <RadioButton
+                                    Content="Presente"
+                                    IsChecked="True"
+                                    Scale="0.85"
+                                    Value="{x:Static local:EAttendance.Presente}" />
 
-                            <RadioButton
-                                Content="Atestado"
-                                Scale="0.85"
-                                Value="{x:Static local:EAttendance.Atestado}" />
-                        </StackLayout>
+                                <RadioButton
+                                    Content="Ausente"
+                                    Scale="0.85"
+                                    Value="{x:Static local:EAttendance.Ausente}" />
 
-                    </Grid>
+                                <RadioButton
+                                    Content="Declaração"
+                                    Scale="0.85"
+                                    Value="{x:Static local:EAttendance.Declaração}" />
 
-                </StackLayout>
+                                <RadioButton
+                                    Content="Atestado"
+                                    Scale="0.85"
+                                    Value="{x:Static local:EAttendance.Atestado}" />
+                            </StackLayout>
 
+                        </Grid>
 
-                <StackLayout Padding="30">
-                    <Button
-                        Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                    </StackLayout>
+
+                    <StackLayout Padding="30">
+                        <Button
+                            Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
                                                      Light={StaticResource 'Primary White'}}"
-                        BorderColor="White"
-                        BorderWidth="1"
-                        Command="{Binding AddAttendanceCommand}"
-                        FontAttributes="Bold"
-                        FontFamily="Inter"
-                        FontSize="12"
-                        Text="Salvar"
-                        TextColor="White" />
+                            BorderColor="White"
+                            BorderWidth="1"
+                            Command="{Binding AddAttendanceCommand}"
+                            FontAttributes="Bold"
+                            FontFamily="Inter"
+                            FontSize="12"
+                            Text="Salvar"
+                            TextColor="White" />
+                    </StackLayout>
+
                 </StackLayout>
 
-            </StackLayout>
+            </VerticalStackLayout>
 
-        </VerticalStackLayout>
+        </ScrollView>
 
-    </ScrollView>
-
+        <BoxView Grid.Row="1" BackgroundColor="Transparent" />
+    </Grid>
 </ContentPage>
