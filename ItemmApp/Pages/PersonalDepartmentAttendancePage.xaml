@@ -6,47 +6,90 @@
     xmlns:local="using:ItemmApp.Enums"
     xmlns:viewModel="clr-namespace:ItemmApp.ViewModel"
     x:DataType="viewModel:PersonalDepartmentAttendanceViewModel"
-    BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'}, Light={StaticResource 'Primary White'}}">
+    BackgroundColor="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                      Light={StaticResource 'Primary White'}}">
 
-    <ScrollView>
+    <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
         <StackLayout
-            VerticalOptions="FillAndExpand"
             Padding="20,0,20,0"
-            HorizontalOptions="Center"
-            Spacing="30">
+            HorizontalOptions="Fill"
+            Spacing="30"
+            VerticalOptions="Center">
 
-            <StackLayout Orientation="Horizontal" Spacing="10">
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="10">
                 <Image HeightRequest="50" Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}" />
                 <Image HeightRequest="20" Source="itemm_text.png" />
             </StackLayout>
 
             <StackLayout Spacing="3">
-                <Label Text="Data de Presença" TextColor="White" FontSize="15" FontFamily="Inter" HorizontalOptions="Start" TextDecorations="Underline" Padding="5,0,0,0"/>
+                <Label
+                    Padding="5,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    Text="Data de Presença"
+                    TextColor="White"
+                    TextDecorations="Underline" />
                 <Border StrokeThickness="2">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10" />
                     </Border.StrokeShape>
-                    <DatePicker BackgroundColor="White" Date="{Binding AttendanceDate}" Format="dd/MM/yyyy" HorizontalOptions="Fill" TextColor="#545F71" />
+                    <DatePicker
+                        BackgroundColor="White"
+                        Date="{Binding AttendanceDate}"
+                        Format="dd/MM/yyyy"
+                        HorizontalOptions="Fill"
+                        TextColor="#545F71" />
                 </Border>
             </StackLayout>
 
             <StackLayout Spacing="3">
-                <Label Text="Aluno" TextColor="White" FontSize="15" FontFamily="Inter" HorizontalOptions="Start" TextDecorations="Underline" Padding="5,0,0,0"/>
+                <Label
+                    Padding="5,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    Text="Aluno"
+                    TextColor="White"
+                    TextDecorations="Underline" />
                 <Border StrokeThickness="2">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10" />
                     </Border.StrokeShape>
-                    <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" FontFamily="Inter" FontSize="15" IsEnabled="False" Text="{Binding Student.Name}" TextColor="#545F71" />
+                    <Entry
+                        BackgroundColor="White"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        IsEnabled="False"
+                        Text="{Binding Student.Name}"
+                        TextColor="#545F71" />
                 </Border>
             </StackLayout>
 
             <StackLayout Spacing="3">
-                <Label Text="Nivel" TextColor="White" FontSize="15" FontFamily="Inter" HorizontalOptions="Start" TextDecorations="Underline" Padding="5,0,0,0"/>
+                <Label
+                    Padding="5,0,0,0"
+                    FontFamily="Inter"
+                    FontSize="15"
+                    HorizontalOptions="Start"
+                    Text="Nivel"
+                    TextColor="White"
+                    TextDecorations="Underline" />
                 <Border StrokeThickness="2">
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="10" />
                     </Border.StrokeShape>
-                    <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" FontFamily="Inter" FontSize="15" Text="{Binding Level}" TextColor="#545F71" />
+                    <Entry
+                        BackgroundColor="White"
+                        ClearButtonVisibility="WhileEditing"
+                        FontFamily="Inter"
+                        FontSize="15"
+                        Text="{Binding Level}"
+                        TextColor="#545F71" />
                 </Border>
             </StackLayout>
 
@@ -60,36 +103,78 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackLayout Grid.Row="0" Grid.Column="0" Spacing="3">
-                        <Label Text="Modulo" TextColor="White" FontSize="15" FontFamily="Inter" HorizontalOptions="Start" TextDecorations="Underline" Padding="5,0,0,0"/>
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Spacing="3">
+                        <Label
+                            Padding="5,0,0,0"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            Text="Modulo"
+                            TextColor="White"
+                            TextDecorations="Underline" />
                         <Border StrokeThickness="2">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="10" />
                             </Border.StrokeShape>
-                            <Entry BackgroundColor="White" ClearButtonVisibility="WhileEditing" FontFamily="Inter" FontSize="15" IsPassword="False" Text="{Binding Module}" TextColor="#545F71" />
+                            <Entry
+                                BackgroundColor="White"
+                                ClearButtonVisibility="WhileEditing"
+                                FontFamily="Inter"
+                                FontSize="15"
+                                IsPassword="False"
+                                Text="{Binding Module}"
+                                TextColor="#545F71" />
                         </Border>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="0" Grid.Column="1" RadioButtonGroup.SelectedValue="{Binding Tipo}">
-                        <Label Text="Presença" TextColor="White" FontSize="15" FontFamily="Inter" HorizontalOptions="Start" TextDecorations="Underline" Padding="5,0,0,0"/>
-                        <RadioButton Content="Presente" IsChecked="True" Scale="0.85" Value="{x:Static local:EAttendance.Presente}" />
-                        <RadioButton Content="Ausente" Scale="0.85" Value="{x:Static local:EAttendance.Ausente}" />
-                        <RadioButton Content="Declaração" Scale="0.85" Value="{x:Static local:EAttendance.Declaração}" />
-                        <RadioButton Content="Atestado" Scale="0.85" Value="{x:Static local:EAttendance.Atestado}" />
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        RadioButtonGroup.SelectedValue="{Binding Tipo}">
+                        <Label
+                            Padding="5,0,0,0"
+                            FontFamily="Inter"
+                            FontSize="15"
+                            HorizontalOptions="Start"
+                            Text="Presença"
+                            TextColor="White"
+                            TextDecorations="Underline" />
+                        <RadioButton
+                            Content="Presente"
+                            IsChecked="True"
+                            Scale="0.85"
+                            Value="{x:Static local:EAttendance.Presente}" />
+                        <RadioButton
+                            Content="Ausente"
+                            Scale="0.85"
+                            Value="{x:Static local:EAttendance.Ausente}" />
+                        <RadioButton
+                            Content="Declaração"
+                            Scale="0.85"
+                            Value="{x:Static local:EAttendance.Declaração}" />
+                        <RadioButton
+                            Content="Atestado"
+                            Scale="0.85"
+                            Value="{x:Static local:EAttendance.Atestado}" />
                     </StackLayout>
                 </Grid>
             </StackLayout>
 
             <StackLayout Padding="30">
-                <Button Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'}, Light={StaticResource 'Primary White'}}"
-                        BorderColor="White"
-                        BorderWidth="1"
-                        Command="{Binding AddAttendanceCommand}"
-                        FontAttributes="Bold"
-                        FontFamily="Inter"
-                        FontSize="12"
-                        Text="Salvar"
-                        TextColor="White" />
+                <Button
+                    Background="{AppThemeBinding Dark={StaticResource 'Primary Dark'},
+                                                 Light={StaticResource 'Primary White'}}"
+                    BorderColor="White"
+                    BorderWidth="1"
+                    Command="{Binding AddAttendanceCommand}"
+                    FontAttributes="Bold"
+                    FontFamily="Inter"
+                    FontSize="12"
+                    Text="Salvar"
+                    TextColor="White" />
             </StackLayout>
         </StackLayout>
     </ScrollView>

@@ -9,11 +9,20 @@
     BackgroundColor="{AppThemeBinding Light={StaticResource 'Primary White'},
                                       Dark={StaticResource 'Primary Dark'}}">
 
-    <ScrollView>
+    <ScrollView HorizontalOptions="Center" VerticalOptions="Center">
         <StackLayout
-            Padding="20"
-            Spacing="10"
-            HorizontalOptions="CenterAndExpand">
+            Padding="20,0,20,0"
+            HorizontalOptions="Fill"
+            Spacing="30"
+            VerticalOptions="Center">
+
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="10">
+                <Image HeightRequest="50" Source="{AppThemeBinding Dark=itemm_logo_dark.png, Light=itemm_logo_light.png}" />
+                <Image HeightRequest="20" Source="itemm_text.png" />
+            </StackLayout>
 
             <StackLayout Spacing="3">
                 <Label
@@ -69,7 +78,7 @@
 
             <StackLayout>
 
-                <Grid ColumnSpacing="20">
+                <Grid ColumnSpacing="20" RowSpacing="30">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -79,7 +88,10 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackLayout Grid.Row="0" Grid.Column="0" Spacing="3">
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Spacing="3">
                         <Label
                             Padding="5,0,0,0"
                             FontFamily="Inter"
@@ -106,7 +118,10 @@
                         </Border>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="0" Grid.Column="1" Spacing="3">
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Spacing="3">
                         <Label
                             Padding="5,0,0,0"
                             FontFamily="Inter"
@@ -134,7 +149,10 @@
                         </Border>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="1" Grid.Column="0" Spacing="3">
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Spacing="3">
                         <Label
                             Padding="5,0,0,0"
                             FontFamily="Inter"
@@ -161,7 +179,10 @@
                         </Border>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="1" Grid.Column="1" Spacing="3">
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Spacing="3">
                         <Label
                             Padding="5,0,0,0"
                             FontFamily="Inter"
@@ -193,7 +214,8 @@
 
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="100">
                 <Button
-                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                    Background="{AppThemeBinding Dark=#022664,
+                                                 Light=#95CA60}"
                     BorderColor="White"
                     BorderWidth="1"
                     Command="{Binding Path=MoveToAddAssessmentCommand}"
@@ -204,7 +226,8 @@
                     TextColor="White" />
 
                 <Button
-                    Background="{AppThemeBinding Dark=#022664, Light=#95CA60}"
+                    Background="{AppThemeBinding Dark=#022664,
+                                                 Light=#95CA60}"
                     BorderColor="White"
                     BorderWidth="1"
                     Command="{Binding DeleteAssessmentCommand}"
@@ -245,7 +268,10 @@
                                     FontSize="Body"
                                     Text="{Binding StudentName}" />
 
-                                <BoxView Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="1" />
+                                <BoxView
+                                    Grid.Row="3"
+                                    Grid.ColumnSpan="2"
+                                    HeightRequest="1" />
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
